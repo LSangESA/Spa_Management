@@ -1,0 +1,278 @@
+﻿<Window x:Class="LVTN_QLSpa.View.NVQL_QuanTriHeThong.QLCTKM.W_GuiTinNhan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_QLSpa.View.NVQL_QuanTriHeThong.QLCTKM"
+        mc:Ignorable="d"
+        Title="W_GuiTinNhan" Height="600" Width="1200"
+        Name="wGuiTinNhan"
+        
+        xmlns:uc="clr-namespace:LVTN_QLSpa.UserControlSpa"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        DataContext="{StaticResource GuiTinNhanVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=wGuiTinNhan}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="15 15 15 15">
+            <materialDesign:Card UniformCornerRadius="15" Background="#FFF7F7F7">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="Black" BorderThickness="0 0 1 0"></Border>
+                    <StackPanel Grid.Column="0" >
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 10 0 10">
+                            <CheckBox IsChecked="{Binding CheckGuiSMS}"
+                                      Style="{StaticResource MaterialDesignDarkCheckBox}"
+                                      Content="SMS" Margin="30 10 40 0"
+                                      Name="chkGuiSMS">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding CommandGuiSMS}"
+                                                               CommandParameter="{Binding ElementName=chkGuiSMS}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                            <CheckBox IsChecked="{Binding CheckGuiMail}"
+                                      Style="{StaticResource MaterialDesignDarkCheckBox}"
+                                      Content="Gmail"
+                                      Margin="20 10 20 0"
+                                      Name="chkGuiGmail">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding CommandGuiGmail}"
+                                                               CommandParameter="{Binding ElementName=chkGuiSMS}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </StackPanel>
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                Margin="30 10 30 10"
+                                materialDesign:ButtonAssist.CornerRadius="5"
+                                Height="35"
+                                Grid.Row="1"
+                                Command="{Binding CommandGuiGiamGia}"
+                                VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                <materialDesign:PackIcon Kind="EmailSendOutline" Margin="0 0 10 0" Width="25" Height="25" />
+                                <TextBlock Text="Gửi đi" Margin="0 5 0 0"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <StackPanel Orientation="Horizontal"  Margin="20 10 0 0">
+                            <Image Source="{Binding GG_ANH}" Width="40" Height="40"></Image>
+                            <TextBlock Text="{Binding GG_TEN}" FontSize="15" Margin="20 0 0 0" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="20 30 0 0">
+                            <materialDesign:PackIcon Kind="CalendarCheckOutline" Margin="0 3 5 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="{Binding GG_NGAYBATDAU, StringFormat='dd/MM/yyyy'}">
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="20 10 0 0">
+                            <materialDesign:PackIcon Kind="CalendarRemove" Margin="0 3 5 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="{Binding GG_NGAYKETTHUC, StringFormat='dd/MM/yyyy'}">
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="20 10 0 0">
+                            <materialDesign:PackIcon Kind="Sale" Margin="0 3 5 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="{Binding GG_PHANTRAMGIAM}">
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="%">
+                            </TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="20 10 0 0">
+                            <materialDesign:PackIcon Kind="CalendarClock" Margin="0 3 5 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="{Binding GG_TRANGTHAI}">
+                            </TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="20 10 0 0"
+                                    Height="80">
+                            <materialDesign:PackIcon Kind="CommentTextMultipleOutline" Margin="0 3 5 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="{Binding GG_NOIDUNG}" Width="250" TextWrapping="Wrap">
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="20 10 0 0">
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="Loại giảm: ">
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                       Text="{Binding GG_LOAIGIAM}">
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Danh sách khách hàng"
+                                   Margin="20 15 0 0"
+                                   FontSize="16"></TextBlock>
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                    Padding="0"
+                                    Height="25"
+                                    Command="{Binding CommandClose}"
+                                    CommandParameter="{Binding ElementName=wGuiTinNhan}"
+                                    Margin="685 0 10 0"
+                                    VerticalAlignment="Bottom" 
+                                    BorderThickness="0"
+                                    HorizontalAlignment="Right">
+                                <materialDesign:PackIcon Kind="Close" />
+                            </Button>
+                        </StackPanel>
+
+                        <ScrollViewer>
+                            <ListView ItemsSource="{Binding ListKhachHang}"  SelectedItem="{Binding SelectedKhachHang, Mode=OneWayToSource}" Height="561">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn>
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <CheckBox Style="{StaticResource MaterialDesignDarkCheckBox}"
+                                                                  Name="chkAllKH" 
+                                                                  Content="Chọn"
+                                                                  HorizontalAlignment="Left">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="Checked">
+                                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.CommandCheckAllKH}"
+                                                                                           CommandParameter="{Binding ElementName=chkAllKH}"/>
+                                                                </i:EventTrigger>
+                                                                <i:EventTrigger EventName="Unchecked">
+                                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.CommandUnCheckAllKH}"
+                                                                                           CommandParameter="{Binding ElementName=chkAllKH}"/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </CheckBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid Margin="17 0 0 0">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <CheckBox Style="{StaticResource MaterialDesignDarkCheckBox}"
+                                                                      Name="chkAllKH" 
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Center"
+                                                                      IsChecked="{Binding IsCheck}">
+                                                            </CheckBox>
+                                                            <Image Source="{Binding KH_ANH}" Width="35" Height="35" ></Image>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Họ tên">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding KH_TEN}" Margin="18 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Số điện thoại">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding KH_SDT}" Margin="18 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Email">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding KH_EMAIL}" Margin="18 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Tuổi">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding KH_TUOI}" Margin="18 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Giới tính">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding KH_GIOITINH}" Margin="18 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Địa chỉ">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding KH_DIACHI}" Margin="18 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </Border>
+    </Grid>
+</Window>

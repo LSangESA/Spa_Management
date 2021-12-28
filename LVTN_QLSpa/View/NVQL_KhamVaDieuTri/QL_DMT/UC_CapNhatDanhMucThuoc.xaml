@@ -1,0 +1,572 @@
+﻿<UserControl x:Class="LVTN_QLSpa.View.NVQL_KhamVaDieuTri.QL_DMT.UC_CapNhatDanhMucThuoc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LVTN_QLSpa.View.NVQL_KhamVaDieuTri.QL_DMT"
+             mc:Ignorable="d" 
+             Name="wDanhMucThuc"
+             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             DataContext="{StaticResource CapNhatDanhMucThuocVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=wDanhMucThuc}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="410"></RowDefinition>
+                <RowDefinition Height="360"></RowDefinition>
+                <RowDefinition Height="300"></RowDefinition>
+                <RowDefinition Height="300"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--control-->
+
+            <!--Thuốc-->
+            <GroupBox Grid.Row="0"
+                  Header="Cập nhật thuốc"
+                  Style="{DynamicResource MaterialDesignGroupBox}"
+                    Margin="10 10 10 10"
+                    materialDesign:ColorZoneAssist.Mode="Custom"
+                    materialDesign:ColorZoneAssist.Background="#FF2D2F4C"
+                    materialDesign:ColorZoneAssist.Foreground="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.Column="0" Margin="10" UniformCornerRadius="10">
+                        <StackPanel>
+                            <TextBox materialDesign:HintAssist.Hint="Mã thuốc"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="15 5 15 5"
+                                 Text="{Binding T_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 IsEnabled="False"/>
+                            <TextBox materialDesign:HintAssist.Hint="Tên thuốc"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="15 5 15 5"
+                                 Text="{Binding T_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ComboBox materialDesign:HintAssist.Hint="Hoạt chất" 
+                                  Grid.Row="8"
+                                  IsEditable="True"
+                                  Margin="15 5 15 5"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  DisplayMemberPath="HC_TEN"
+                                  ItemsSource="{Binding HOATCHAT}"
+                                  SelectedItem="{Binding SelectedHOATCHAT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </ComboBox>
+                            <ComboBox materialDesign:HintAssist.Hint="Đơn vị tính" 
+                                  Grid.Row="8"
+                                  IsEditable="True"
+                                  Margin="15 5 15 5"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  DisplayMemberPath="DVT_TEN"
+                                  ItemsSource="{Binding DVT}"
+                                  SelectedItem="{Binding SelectedDVT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </ComboBox>
+                            <ComboBox materialDesign:HintAssist.Hint="Nhà sản xuất" 
+                                  Grid.Row="8"
+                                  IsEditable="True"
+                                  Margin="15 5 15 5"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  DisplayMemberPath="NSX_TEN"
+                                  ItemsSource="{Binding NHASX}"
+                                  SelectedItem="{Binding SelectedNHASX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </ComboBox>
+                            <Grid Margin="0 40 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="0"
+                                    Command="{Binding AddTHUOC}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="ContentSaveEdit" Width="20" Height="20" />
+                                        <TextBlock Text="Lưu" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="1"
+                                    Command="{Binding DeleteTHUOC}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" />
+                                        <TextBlock Text="Xóa" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="2"
+                                    Command="{Binding ClearTHUOC}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                        <TextBlock Text="Làm mới" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+                        <Grid Margin="10 0 10 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 10 0 10" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Magnify" VerticalAlignment="Center" Width="20" Height="20" Margin="30 0 10 -10" />
+                                <TextBox materialDesign:HintAssist.Hint="Nhập từ khóa tìm kiếm"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         Width="210"/>
+                            </StackPanel>
+                            <ListView ItemsSource="{Binding THUOCList}" Grid.Row="1" SelectedItem="{Binding SelectedItemTHUOC, Mode=OneWayToSource}">
+                                <ListView.View>
+                                    <GridView>
+                                        <!--<GridViewColumn Header="Mã thuốc" DisplayMemberBinding="{Binding T_MA}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên thuốc" DisplayMemberBinding="{Binding T_TEN}"></GridViewColumn>
+                                    <GridViewColumn Header="Biệc dược" DisplayMemberBinding="{Binding HOATCHAT.HC_TEN}"></GridViewColumn>
+                                    <GridViewColumn Header="ĐVT" DisplayMemberBinding="{Binding DVT.DVT_TEN}"></GridViewColumn>
+                                    <GridViewColumn Header="Nhà sản xuất" DisplayMemberBinding="{Binding NHASX.NSX_TEN}"></GridViewColumn>-->
+                                        <GridViewColumn Header="Mã thuốc">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding T_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Tên thuốc" Width="170">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding T_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Biệc dược">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding HOATCHAT.HC_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="ĐVT">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding DVT.DVT_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Nhà sản xuất">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding NHASX.NSX_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </materialDesign:Card>
+
+                </Grid>
+            </GroupBox>
+
+            <!--Biệc dược-->
+            <GroupBox Grid.Row="1"
+                  Header="Cập nhật hoạt chất"
+                  Style="{DynamicResource MaterialDesignGroupBox}"
+                  Margin="10 10 10 10"
+                  materialDesign:ColorZoneAssist.Mode="Custom"
+                  materialDesign:ColorZoneAssist.Background="#FF2D2F4C"
+                  materialDesign:ColorZoneAssist.Foreground="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.Column="0" Margin="10" UniformCornerRadius="10">
+                        <StackPanel>
+                            <TextBox materialDesign:HintAssist.Hint="Mã hoạt chất"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="15 5 15 5" IsEnabled="False"
+                                 Text="{Binding HC_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Tên hoạt chất"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="15 5 15 5"
+                                 Text="{Binding HC_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Hàm lượng"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="15 5 15 5"
+                                 Text="{Binding HC_HAMLUONG, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Công dụng"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="15 5 15 5"
+                                 Text="{Binding HC_CONGDUNG, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Grid Margin="0 35 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="0"
+                                    Command="{Binding AddHOATCHAT}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="ContentSaveEdit" Width="20" Height="20" />
+                                        <TextBlock Text="Lưu" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="1"
+                                    Command="{Binding DeleteHOATCHAT}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" />
+                                        <TextBlock Text="Xóa" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="2"
+                                    Command="{Binding ClearHOATCHAT}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                        <TextBlock Text="Làm mới" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 10 0 10" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Magnify" VerticalAlignment="Center" Width="20" Height="20" Margin="30 0 10 -10" />
+                                <TextBox materialDesign:HintAssist.Hint="Nhập từ khóa tìm kiếm"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         Width="210"/>
+                            </StackPanel>
+                            <ListView ItemsSource="{Binding HOATCHATList}" Grid.Row="1" SelectedItem="{Binding SelectedItemHOATCHAT, Mode=OneWayToSource}">
+                                <ListView.View>
+                                    <GridView>
+                                        <!--<GridViewColumn Header="Mã HC" DisplayMemberBinding="{Binding HC_MA}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên HC" DisplayMemberBinding="{Binding HC_TEN}"></GridViewColumn>
+                                    <GridViewColumn Header="Hàm lượng" DisplayMemberBinding="{Binding HC_HAMLUONG}"></GridViewColumn>
+                                    <GridViewColumn Header="Công dụng" DisplayMemberBinding="{Binding HC_CONGDUNG}"></GridViewColumn>-->
+                                        <GridViewColumn Header="Mã HC">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding HC_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Tên HC" Width="170">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding HC_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Hàm lượng">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding HC_HAMLUONG}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Công dụng">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding HC_CONGDUNG}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </materialDesign:Card>
+
+                </Grid>
+            </GroupBox>
+
+            <!--Nha san xuat-->
+            <GroupBox Grid.Row="2"
+                  Header="Cập nhật nhà sản xuất thuốc"
+                  Style="{DynamicResource MaterialDesignGroupBox}"
+                  Margin="10 10 10 10"
+                  materialDesign:ColorZoneAssist.Mode="Custom"
+                  materialDesign:ColorZoneAssist.Background="#FF2D2F4C"
+                  materialDesign:ColorZoneAssist.Foreground="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.Column="0" Margin="10" UniformCornerRadius="10">
+                        <StackPanel Grid.Column="0">
+                            <TextBox materialDesign:HintAssist.Hint="Mã NSX"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Margin="15 5 15 5" IsEnabled="False"
+                                 Text="{Binding NSX_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Tên NSX"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Margin="15 5 15 5"
+                                 Text="{Binding NSX_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Grid Margin="0 70 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="0"
+                                    Command="{Binding AddNHASX}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="ContentSaveEdit" Width="20" Height="20" />
+                                        <TextBlock Text="Lưu" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="1"
+                                    Command="{Binding DeleteNHASX}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" />
+                                        <TextBlock Text="Xóa" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="2"
+                                    Command="{Binding ClearNHASX}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                        <TextBlock Text="Làm mới" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+                        <ListView ItemsSource="{Binding NHASXList}" SelectedItem="{Binding SelectedItemNHASX, Mode=OneWayToSource}">
+                            <ListView.View>
+                                <GridView>
+                                    <!--<GridViewColumn Header="Mã NSX" DisplayMemberBinding="{Binding NSX_MA}"></GridViewColumn>
+                                <GridViewColumn Header="Tên NSX" DisplayMemberBinding="{Binding NSX_TEN}"></GridViewColumn>-->
+                                    <GridViewColumn Header="Mã NSX">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <TextBlock Text="{Binding NSX_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Tên NSX">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <TextBlock Text="{Binding NSX_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </materialDesign:Card>
+
+                </Grid>
+            </GroupBox>
+
+            <!--Nhà sản xuất-->
+            <GroupBox Grid.Row="3"
+                  Header="Cập nhật đơn vị tính"
+                  Style="{DynamicResource MaterialDesignGroupBox}"
+                  Margin="10 10 10 10"
+                  materialDesign:ColorZoneAssist.Mode="Custom"
+                  materialDesign:ColorZoneAssist.Background="#FF2D2F4C"
+                  materialDesign:ColorZoneAssist.Foreground="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.Column="0" Margin="10" UniformCornerRadius="10">
+                        <StackPanel Grid.Column="0">
+                            <TextBox materialDesign:HintAssist.Hint="Mã DVT"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Margin="15 5 15 5" IsEnabled="False"
+                                 Text="{Binding DVT_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Tên DVT"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Margin="15 5 15 5"
+                                 Text="{Binding DVT_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Grid Margin="0 70 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="0"
+                                    Command="{Binding AddDVT}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="ContentSaveEdit" Width="20" Height="20" />
+                                        <TextBlock Text="Lưu" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="1"
+                                    Command="{Binding DeleteDVT}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" />
+                                        <TextBlock Text="Xóa" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 5 10 10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="30"
+                                    Grid.Column="2"
+                                    Command="{Binding ClearDVT}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                        <TextBlock Text="Làm mới" Margin="0 3 0 0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+                        <ListView ItemsSource="{Binding DVTList}" SelectedItem="{Binding SelectedItemDVT, Mode=OneWayToSource}">
+                            <ListView.View>
+                                <GridView>
+                                    <!--<GridViewColumn Header="Mã DVT" DisplayMemberBinding="{Binding DVT_MA}"></GridViewColumn>
+                                <GridViewColumn Header="Tên DVT" DisplayMemberBinding="{Binding DVT_TEN}"></GridViewColumn>-->
+                                    <GridViewColumn Header="Mã DVT">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <TextBlock Text="{Binding DVT_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Tên DVT" Width="170">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <TextBlock Text="{Binding DVT_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </materialDesign:Card>
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
+    
+</UserControl>

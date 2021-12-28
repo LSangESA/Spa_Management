@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LVTN_HTQL_SPAModelStoreContainer" CdmEntityContainer="LVTN_HTQL_SPAEntities">
+    <EntitySetMapping Name="CACHTHANHTOAN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CACHTHANHTOAN">
+        <MappingFragment StoreEntitySet="CACHTHANHTOAN">
+          <ScalarProperty Name="CTT_MA" ColumnName="CTT_MA" />
+          <ScalarProperty Name="CTT_TEN" ColumnName="CTT_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CALAMVIEC">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CALAMVIEC">
+        <MappingFragment StoreEntitySet="CALAMVIEC">
+          <ScalarProperty Name="CLV_MA" ColumnName="CLV_MA" />
+          <ScalarProperty Name="CLV_TEN" ColumnName="CLV_TEN" />
+          <ScalarProperty Name="CLV_GIOBATDAU" ColumnName="CLV_GIOBATDAU" />
+          <ScalarProperty Name="CLV_GIOKETTHUC" ColumnName="CLV_GIOKETTHUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHIDINH">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CHIDINH">
+        <MappingFragment StoreEntitySet="CHIDINH">
+          <ScalarProperty Name="T_MA" ColumnName="T_MA" />
+          <ScalarProperty Name="PDT_STT" ColumnName="PDT_STT" />
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="CD_SOLUONG" ColumnName="CD_SOLUONG" />
+          <ScalarProperty Name="CD_LIEUDUNG" ColumnName="CD_LIEUDUNG" />
+          <ScalarProperty Name="CD_CACHDUNG" ColumnName="CD_CACHDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETPHONG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CHITIETPHONG">
+        <MappingFragment StoreEntitySet="CHITIETPHONG">
+          <ScalarProperty Name="VT_MA" ColumnName="VT_MA" />
+          <ScalarProperty Name="P_MA" ColumnName="P_MA" />
+          <ScalarProperty Name="CTP_SOLUONG" ColumnName="CTP_SOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUCNANG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CHUCNANG">
+        <MappingFragment StoreEntitySet="CHUCNANG">
+          <ScalarProperty Name="CN_MA" ColumnName="CN_MA" />
+          <ScalarProperty Name="CN_TEN" ColumnName="CN_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUYENMON">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CHUYENMON">
+        <MappingFragment StoreEntitySet="CHUYENMON">
+          <ScalarProperty Name="CM_MA" ColumnName="CM_MA" />
+          <ScalarProperty Name="CM_TEN" ColumnName="CM_TEN" />
+          <ScalarProperty Name="CM_MOTA" ColumnName="CM_MOTA" />
+          <ScalarProperty Name="VT_MA" ColumnName="VT_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUYENMONNHANVIEN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.CHUYENMONNHANVIEN">
+        <MappingFragment StoreEntitySet="CHUYENMONNHANVIEN">
+          <ScalarProperty Name="CM_MA" ColumnName="CM_MA" />
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DG_GDV">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.DG_GDV">
+        <MappingFragment StoreEntitySet="DG_GDV">
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DG_LT">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.DG_LT">
+        <MappingFragment StoreEntitySet="DG_LT">
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="LT_MA" ColumnName="LT_MA" />
+          <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DICHVU">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.DICHVU">
+        <MappingFragment StoreEntitySet="DICHVU">
+          <ScalarProperty Name="DV_MA" ColumnName="DV_MA" />
+          <ScalarProperty Name="DV_TEN" ColumnName="DV_TEN" />
+          <ScalarProperty Name="DV_ANH" ColumnName="DV_ANH" />
+          <ScalarProperty Name="DV_MOTA" ColumnName="DV_MOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVT">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.DVT">
+        <MappingFragment StoreEntitySet="DVT">
+          <ScalarProperty Name="DVT_MA" ColumnName="DVT_MA" />
+          <ScalarProperty Name="DVT_TEN" ColumnName="DVT_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GOIDICHVU">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.GOIDICHVU">
+        <MappingFragment StoreEntitySet="GOIDICHVU">
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="GDV_TEN" ColumnName="GDV_TEN" />
+          <ScalarProperty Name="GDV_SOLAN" ColumnName="GDV_SOLAN" />
+          <ScalarProperty Name="GDV_MOTA" ColumnName="GDV_MOTA" />
+          <ScalarProperty Name="GDV_ANH" ColumnName="GDV_ANH" />
+          <ScalarProperty Name="LGDV_MA" ColumnName="LGDV_MA" />
+          <ScalarProperty Name="DV_MA" ColumnName="DV_MA" />
+          <ScalarProperty Name="PP_MA" ColumnName="PP_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAMGOIDICHVU">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.GIAMGOIDICHVU">
+        <MappingFragment StoreEntitySet="GIAMGOIDICHVU">
+          <ScalarProperty Name="GG_MA" ColumnName="GG_MA" />
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAMGIA">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.GIAMGIA">
+        <MappingFragment StoreEntitySet="GIAMGIA">
+          <ScalarProperty Name="GG_MA" ColumnName="GG_MA" />
+          <ScalarProperty Name="GG_TEN" ColumnName="GG_TEN" />
+          <ScalarProperty Name="GG_NGAYBATDAU" ColumnName="GG_NGAYBATDAU" />
+          <ScalarProperty Name="GG_NGAYKETTHUC" ColumnName="GG_NGAYKETTHUC" />
+          <ScalarProperty Name="GG_NOIDUNG" ColumnName="GG_NOIDUNG" />
+          <ScalarProperty Name="GG_TRANGTHAI" ColumnName="GG_TRANGTHAI" />
+          <ScalarProperty Name="GG_PHANTRAMGIAM" ColumnName="GG_PHANTRAMGIAM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAMGIA_PDK">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.GIAMGIA_PDK">
+        <MappingFragment StoreEntitySet="GIAMGIA_PDK">
+          <ScalarProperty Name="GG_MA" ColumnName="GG_MA" />
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HINHTHUCTHANHTOAN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.HINHTHUCTHANHTOAN">
+        <MappingFragment StoreEntitySet="HINHTHUCTHANHTOAN">
+          <ScalarProperty Name="HTTT_MA" ColumnName="HTTT_MA" />
+          <ScalarProperty Name="HTTT_TEN" ColumnName="HTTT_TEN" />
+          <ScalarProperty Name="HTTT_MOTA" ColumnName="HTTT_MOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOATCHAT">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.HOATCHAT">
+        <MappingFragment StoreEntitySet="HOATCHAT">
+          <ScalarProperty Name="HC_MA" ColumnName="HC_MA" />
+          <ScalarProperty Name="HC_TEN" ColumnName="HC_TEN" />
+          <ScalarProperty Name="HC_HAMLUONG" ColumnName="HC_HAMLUONG" />
+          <ScalarProperty Name="HC_CONGDUNG" ColumnName="HC_CONGDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HUYENQUAN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.HUYENQUAN">
+        <MappingFragment StoreEntitySet="HUYENQUAN">
+          <ScalarProperty Name="HQ_MA" ColumnName="HQ_MA" />
+          <ScalarProperty Name="HQ_TEN" ColumnName="HQ_TEN" />
+          <ScalarProperty Name="TT_MA" ColumnName="TT_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="KH_MA" ColumnName="KH_MA" />
+          <ScalarProperty Name="KH_HOTEN" ColumnName="KH_HOTEN" />
+          <ScalarProperty Name="KH_NGAYSINH" ColumnName="KH_NGAYSINH" />
+          <ScalarProperty Name="KH_GIOITINH" ColumnName="KH_GIOITINH" />
+          <ScalarProperty Name="KH_DIACHI" ColumnName="KH_DIACHI" />
+          <ScalarProperty Name="KH_SDT" ColumnName="KH_SDT" />
+          <ScalarProperty Name="KH_EMAIL" ColumnName="KH_EMAIL" />
+          <ScalarProperty Name="KH_TRANGTHAIDANGNHAP" ColumnName="KH_TRANGTHAIDANGNHAP" />
+          <ScalarProperty Name="XP_MA" ColumnName="XP_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LGG_GG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LGG_GG">
+        <MappingFragment StoreEntitySet="LGG_GG">
+          <ScalarProperty Name="LGG_MA" ColumnName="LGG_MA" />
+          <ScalarProperty Name="GG_MA" ColumnName="GG_MA" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LICHHEN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LICHHEN">
+        <MappingFragment StoreEntitySet="LICHHEN">
+          <ScalarProperty Name="LH_ID" ColumnName="LH_ID" />
+          <ScalarProperty Name="LH_NGAYDEN" ColumnName="LH_NGAYDEN" />
+          <ScalarProperty Name="LH_THOIGIANDEN" ColumnName="LH_THOIGIANDEN" />
+          <ScalarProperty Name="LH_GHICHU" ColumnName="LH_GHICHU" />
+          <ScalarProperty Name="LH_TRANGTHAI" ColumnName="LH_TRANGTHAI" />
+          <ScalarProperty Name="KH_MA" ColumnName="KH_MA" />
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="CLV_MA" ColumnName="CLV_MA" />
+          <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LICHLAMVIEC">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LICHLAMVIEC">
+        <MappingFragment StoreEntitySet="LICHLAMVIEC">
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="CLV_MA" ColumnName="CLV_MA" />
+          <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+          <ScalarProperty Name="P_MA" ColumnName="P_MA" />
+          <ScalarProperty Name="LLV_GHICHU" ColumnName="LLV_GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LICHTRINHDIEUTRI">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LICHTRINHDIEUTRI">
+        <MappingFragment StoreEntitySet="LICHTRINHDIEUTRI">
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="LT_MA" ColumnName="LT_MA" />
+          <ScalarProperty Name="LTDT_NGAYDT" ColumnName="LTDT_NGAYDT" />
+          <ScalarProperty Name="LTDT_THOIGIANDEN" ColumnName="LTDT_THOIGIANDEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIEUTRINH">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LIEUTRINH">
+        <MappingFragment StoreEntitySet="LIEUTRINH">
+          <ScalarProperty Name="LT_MA" ColumnName="LT_MA" />
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="LT_STT" ColumnName="LT_STT" />
+          <ScalarProperty Name="LT_MOTA" ColumnName="LT_MOTA" />
+          <ScalarProperty Name="LT_THOIGIANTH" ColumnName="LT_THOIGIANTH" />
+          <ScalarProperty Name="LT_NGAYTHU" ColumnName="LT_NGAYTHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIGOIDICHVU">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LOAIGOIDICHVU">
+        <MappingFragment StoreEntitySet="LOAIGOIDICHVU">
+          <ScalarProperty Name="LGDV_MA" ColumnName="LGDV_MA" />
+          <ScalarProperty Name="LGDV_TEN" ColumnName="LGDV_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIGIAMGIA">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.LOAIGIAMGIA">
+        <MappingFragment StoreEntitySet="LOAIGIAMGIA">
+          <ScalarProperty Name="LGG_MA" ColumnName="LGG_MA" />
+          <ScalarProperty Name="LGG_TEN" ColumnName="LGG_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NV_PDT">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.NV_PDT">
+        <MappingFragment StoreEntitySet="NV_PDT">
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="PDT_STT" ColumnName="PDT_STT" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGAY">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.NGAY">
+        <MappingFragment StoreEntitySet="NGAY">
+          <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIEN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="NV_HOTEN" ColumnName="NV_HOTEN" />
+          <ScalarProperty Name="NV_NGAYSINH" ColumnName="NV_NGAYSINH" />
+          <ScalarProperty Name="NV_GIOITINH" ColumnName="NV_GIOITINH" />
+          <ScalarProperty Name="NV_SDT" ColumnName="NV_SDT" />
+          <ScalarProperty Name="NV_EMAIL" ColumnName="NV_EMAIL" />
+          <ScalarProperty Name="NV_CCCD" ColumnName="NV_CCCD" />
+          <ScalarProperty Name="NV_DIACHI" ColumnName="NV_DIACHI" />
+          <ScalarProperty Name="NV_USERNAME" ColumnName="NV_USERNAME" />
+          <ScalarProperty Name="NV_PASSWORD" ColumnName="NV_PASSWORD" />
+          <ScalarProperty Name="NV_TRANGTHAI" ColumnName="NV_TRANGTHAI" />
+          <ScalarProperty Name="NV_ANH" ColumnName="NV_ANH" />
+          <ScalarProperty Name="XP_MA" ColumnName="XP_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHASX">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.NHASX">
+        <MappingFragment StoreEntitySet="NHASX">
+          <ScalarProperty Name="NSX_MA" ColumnName="NSX_MA" />
+          <ScalarProperty Name="NSX_TEN" ColumnName="NSX_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PT_PDT">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PT_PDT">
+        <MappingFragment StoreEntitySet="PT_PDT">
+          <ScalarProperty Name="PDT_STT" ColumnName="PDT_STT" />
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="PT_STT" ColumnName="PT_STT" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUDANGKY">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PHIEUDANGKY">
+        <MappingFragment StoreEntitySet="PHIEUDANGKY">
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="PDK_NGAYDK" ColumnName="PDK_NGAYDK" />
+          <ScalarProperty Name="PDK_NGAYBATDAU" ColumnName="PDK_NGAYBATDAU" />
+          <ScalarProperty Name="PDK_TRANGTHAI" ColumnName="PDK_TRANGTHAI" />
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="KH_MA" ColumnName="KH_MA" />
+          <ScalarProperty Name="CTT_MA" ColumnName="CTT_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUDIEUTRI">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PHIEUDIEUTRI">
+        <MappingFragment StoreEntitySet="PHIEUDIEUTRI">
+          <ScalarProperty Name="PDT_STT" ColumnName="PDT_STT" />
+          <ScalarProperty Name="PDK_STT" ColumnName="PDK_STT" />
+          <ScalarProperty Name="PDT_NGAYLAP" ColumnName="PDT_NGAYLAP" />
+          <ScalarProperty Name="PDT_CHUANDOAN" ColumnName="PDT_CHUANDOAN" />
+          <ScalarProperty Name="PDT_GHICHU" ColumnName="PDT_GHICHU" />
+          <ScalarProperty Name="PDT_LOIDAN" ColumnName="PDT_LOIDAN" />
+          <ScalarProperty Name="PDT_TRANGTHAI" ColumnName="PDT_TRANGTHAI" />
+          <ScalarProperty Name="PDT_TRANGTHAINNO" ColumnName="PDT_TRANGTHAINNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUTHU">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PHIEUTHU">
+        <MappingFragment StoreEntitySet="PHIEUTHU">
+          <ScalarProperty Name="PT_STT" ColumnName="PT_STT" />
+          <ScalarProperty Name="PT_NGAYLAP" ColumnName="PT_NGAYLAP" />
+          <ScalarProperty Name="PT_TONGTIEN" ColumnName="PT_TONGTIEN" />
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="HTTT_MA" ColumnName="HTTT_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="P_MA" ColumnName="P_MA" />
+          <ScalarProperty Name="P_SO" ColumnName="P_SO" />
+          <ScalarProperty Name="P_TEN" ColumnName="P_TEN" />
+          <ScalarProperty Name="P_MOTA" ColumnName="P_MOTA" />
+          <ScalarProperty Name="P_SOLUONGNHANVIEN" ColumnName="P_SOLUONGNHANVIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHUONGPHAP">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PHUONGPHAP">
+        <MappingFragment StoreEntitySet="PHUONGPHAP">
+          <ScalarProperty Name="PP_MA" ColumnName="PP_MA" />
+          <ScalarProperty Name="PP_TEN" ColumnName="PP_TEN" />
+          <ScalarProperty Name="PP_MOTA" ColumnName="PP_MOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHUTRACHGOI">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.PHUTRACHGOI">
+        <MappingFragment StoreEntitySet="PHUTRACHGOI">
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="NV_MA" ColumnName="NV_MA" />
+          <ScalarProperty Name="PTG_NGAY" ColumnName="PTG_NGAY" />
+          <ScalarProperty Name="PTG_TRANGTHAI" ColumnName="PTG_TRANGTHAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUYEN">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.QUYEN">
+        <MappingFragment StoreEntitySet="QUYEN">
+          <ScalarProperty Name="VT_MA" ColumnName="VT_MA" />
+          <ScalarProperty Name="CN_MA" ColumnName="CN_MA" />
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTHANH">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.TINHTHANH">
+        <MappingFragment StoreEntitySet="TINHTHANH">
+          <ScalarProperty Name="TT_MA" ColumnName="TT_MA" />
+          <ScalarProperty Name="TT_TEN" ColumnName="TT_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THUOC">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.THUOC">
+        <MappingFragment StoreEntitySet="THUOC">
+          <ScalarProperty Name="T_MA" ColumnName="T_MA" />
+          <ScalarProperty Name="T_TEN" ColumnName="T_TEN" />
+          <ScalarProperty Name="NSX_MA" ColumnName="NSX_MA" />
+          <ScalarProperty Name="DVT_MA" ColumnName="DVT_MA" />
+          <ScalarProperty Name="HC_MA" ColumnName="HC_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VAITRO">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.VAITRO">
+        <MappingFragment StoreEntitySet="VAITRO">
+          <ScalarProperty Name="VT_MA" ColumnName="VT_MA" />
+          <ScalarProperty Name="VT_TEN" ColumnName="VT_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XAPHUONG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.XAPHUONG">
+        <MappingFragment StoreEntitySet="XAPHUONG">
+          <ScalarProperty Name="XP_MA" ColumnName="XP_MA" />
+          <ScalarProperty Name="XP_TEN" ColumnName="XP_TEN" />
+          <ScalarProperty Name="HQ_MA" ColumnName="HQ_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DICHVUPHONG">
+      <EntityTypeMapping TypeName="LVTN_HTQL_SPAModel.DICHVUPHONG">
+        <MappingFragment StoreEntitySet="DICHVUPHONG">
+          <ScalarProperty Name="ErrorHandling" ColumnName="ErrorHandling" />
+          <ScalarProperty Name="GDV_MA" ColumnName="GDV_MA" />
+          <ScalarProperty Name="P_MA" ColumnName="P_MA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

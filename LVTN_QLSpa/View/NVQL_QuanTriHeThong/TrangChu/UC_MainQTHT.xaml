@@ -1,0 +1,369 @@
+﻿<UserControl x:Class="LVTN_QLSpa.View.NVQL_LichHenVaDKKham.TrangChu.UC_MainQTHT"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LVTN_QLSpa.View.NVQL_LichHenVaDKKham.TrangChu"
+             mc:Ignorable="d" 
+             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card UniformCornerRadius="10" Margin="10" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="10 10 10 10"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        Height="40"
+                        Grid.Column="0"
+                        Command="{Binding ClearLT}"
+                        VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                        <materialDesign:PackIcon Kind="FileChart" Margin="0 0 10 0" Width="25" Height="25" />
+                        <TextBlock Text="Báo cáo hôm nay" Margin="0 5 0 0"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="10 10 10 10"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        Height="40"
+                        Grid.Column="1"
+                        Command="{Binding ClearLT}"
+                        VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                        <materialDesign:PackIcon Kind="CalendarPlus" Margin="0 0 10 0" Width="25" Height="25" />
+                        <TextBlock Text="Tạo lịch hẹn mới" Margin="0 5 0 0"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="10 10 10 10"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        Height="40"
+                        Grid.Column="2"
+                        Command="{Binding ClearLT}"
+                        VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                        <materialDesign:PackIcon Kind="TextBoxPlusOutline" Margin="0 0 10 0" Width="25" Height="25" />
+                        <TextBlock Text="Đăng ký mới dịch vụ" Margin="0 5 0 0"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="10" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Background="#FFE77E7E"
+                                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                         Padding="0"
+                                         Margin="0 10 20 20"
+                                         UniformCornerRadius="15">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           Margin="16 16 16 4"
+                                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                           Text="Doanh thu"
+                                           Foreground="Black">
+                                </TextBlock>
+
+                                <materialDesign:PackIcon Kind="CurrencyUsd" 
+                                                         Grid.Column="1" 
+                                                         Margin="15"
+                                                         Width="30"
+                                                         Height="30"
+                                                         Foreground="Black"
+                                                         HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Margin="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Tổng tiền" 
+                                           Margin="0 20 0 0" 
+                                           HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center"
+                                           Foreground="Black" 
+                                           FontSize="15"></TextBlock>
+
+
+                                <TextBlock Text="123.000.000đ" 
+                                           Margin="0 20 0 0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center"
+                                           Foreground="Black" 
+                                           Grid.Column="1"
+                                           FontSize="15"></TextBlock>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Background="#FF79F6B9"
+                                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                         Padding="0"
+                                         Grid.Column="1"
+                                         Margin="20 10 20 20"
+                                         UniformCornerRadius="15">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           Margin="16 16 16 4"
+                                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                           Text="Tổng nợ"
+                                           Foreground="Black">
+                                </TextBlock>
+
+                                <materialDesign:PackIcon Kind="DatabaseImport" 
+                                                         Grid.Column="1" 
+                                                         Margin="15"
+                                                         Width="30"
+                                                         Height="30"
+                                                         Foreground="Black"
+                                                         HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Margin="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Tổng tiền" 
+                                           Margin="0 20 0 0" 
+                                           HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center"
+                                           Foreground="Black" 
+                                           FontSize="15"></TextBlock>
+
+
+                                <TextBlock Text="123.000.000đ" 
+                                           Margin="0 20 0 0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center"
+                                           Foreground="Black" 
+                                           Grid.Column="1"
+                                           FontSize="15"></TextBlock>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Background="#FFEBF077"
+                                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                         Padding="0"
+                                         Grid.Column="2"
+                                         Margin="20 10 0 20"
+                                         UniformCornerRadius="15">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           Margin="16 16 16 4"
+                                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                           Text="Khách hàng"
+                                           Foreground="Black">
+                                </TextBlock>
+
+                                <materialDesign:PackIcon Kind="CardAccountDetailsOutline" 
+                                                         Grid.Column="1" 
+                                                         Margin="15"
+                                                         Width="30"
+                                                         Height="30"
+                                                         Foreground="Black"
+                                                         HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Margin="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="15" Margin="0 5 0 0" HorizontalAlignment="Center" Foreground="Black" FontSize="20"></TextBlock>
+                                        <TextBlock Text="Khách mới hôm nay" Margin="0 5 0 0" HorizontalAlignment="Center" Foreground="Black" FontSize="13"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="9" Margin="0 5 0 0" HorizontalAlignment="Center" Foreground="Black" FontSize="20"></TextBlock>
+                                        <TextBlock Text="Khách cũ hôm nay" Margin="0 5 0 0" HorizontalAlignment="Center" Foreground="Black" FontSize="13"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Grid>
+
+                <materialDesign:Card Grid.Row="1" UniformCornerRadius="10" Margin="10 10 10 20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock Grid.Column="0"
+                                       Margin="20"
+                                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                       Text="Lịch tái khám hôm nay"
+                                       Foreground="Black"
+                                       FontSize="20">
+                            </TextBlock>
+
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <materialDesign:PackIcon Kind="Magnify"
+                                                         Width="25"
+                                                         Height="25"
+                                                         Grid.Column="0"
+                                                         Margin="0 15 0 0"/>
+                                <TextBox materialDesign:HintAssist.Hint="Tìm kiếm theo tên hoặc số điện thoại"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        Text="{Binding NV_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                         Margin="10 0 0 25">
+                                </TextBox>
+                            </Grid>
+
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="90 10 10 20"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Height="35"
+                                    Grid.Column="2"
+                                    Command="{Binding ClearLT}"
+                                    VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                                <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                    <materialDesign:PackIcon Kind="NoteTextOutline" Margin="0 0 10 0" Width="25" Height="25" />
+                                    <TextBlock Text="Lập phiếu điều trị" Margin="0 5 0 0"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </materialDesign:Card>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.8*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <materialDesign:Card UniformCornerRadius="10" Margin="10 20 10 10" Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Margin="20 10 10 10"
+                                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                       Text="Lịch hẹn hôm nay"
+                                       Foreground="Black"
+                                       FontSize="18">
+                        </TextBlock>
+                        <Separator Margin="5 0 5 5" BorderThickness="0.1" BorderBrush="Black" Grid.Row="1"></Separator>
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card UniformCornerRadius="10" Margin="10 10 10 10" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Margin="20 10 10 10"
+                                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                       Text="Sinh nhật khách hàng"
+                                       Foreground="Black"
+                                       FontSize="18">
+                        </TextBlock>
+                        <Separator Margin="5 0 5 5" BorderThickness="0.1" BorderBrush="Black" Grid.Row="1"></Separator>
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card UniformCornerRadius="10" Margin="10 10 10 20" Grid.Row="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Margin="20 10 10 10"
+                                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                       Text="Khuyến mãi hôm nay"
+                                       Foreground="Black"
+                                       FontSize="18">
+                        </TextBlock>
+                        <Separator Margin="5 0 5 5" BorderThickness="0.1" BorderBrush="Black" Grid.Row="1"></Separator>
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</UserControl>

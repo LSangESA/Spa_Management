@@ -1,0 +1,820 @@
+﻿<Window x:Class="LVTN_QLSpa.View.NVQL_LichHenVaDKKham.QLPhieuKham.W_LapPhieuDangKy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_QLSpa.View.NVQL_LichHenVaDKKham.QLPhieuKham"
+        mc:Ignorable="d"
+        Title="Lập phiếu đăng ký" Height="800" Width="1300"
+        x:Name="WLapPhieuDangKy"
+        
+        xmlns:uc="clr-namespace:LVTN_QLSpa.UserControlSpa"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        WindowState="Maximized"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        DataContext="{StaticResource LapPhieuDangKyVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=WLapPhieuDangKy}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="15 15 15 15">
+            <materialDesign:Card  UniformCornerRadius="15" Background="#FFF7F7F7" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <uc:UseControlUC Tag="{Binding Title, ElementName=WLapPhieuDangKy}"></uc:UseControlUC>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:Card UniformCornerRadius="10" Margin="10 10 0 10" Grid.Column="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="170"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <!--Thong tin khach hang da nap du lieu-->
+                                <Grid Grid.Row="0" Margin="0 10 0 0"  Visibility="{Binding ShowInfoKH}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding KH_ANH}"
+                                   Height="70" 
+                                   Width="70"
+                                   Grid.Column="0"
+                                   Margin="20 30 20 20" />
+
+                                    <Grid Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" 
+                                            Margin="20 15 0 0" 
+                                            Grid.Row="0" 
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center">
+                                            <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                                               Text="{Binding KH_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                            </TextBlock>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="Mã KH: "
+                                           Margin="22 5 0 0">
+                                                </TextBlock>
+                                                <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="{Binding KH_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           Margin="0 5 0 0">
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0" Margin="20 10 10 10">
+                                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <materialDesign:PackIcon Kind="PhoneCheck" Margin="0 3 5 0"/>
+                                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_SDT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                    </TextBlock>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <materialDesign:PackIcon Kind="GenderMaleFemale" Margin="0 0 5 0"/>
+                                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Margin="20 10 10 10">
+                                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <materialDesign:PackIcon Kind="Cake" Margin="0 0 5 0"/>
+                                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_NGAYSINH, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                    </TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <materialDesign:PackIcon Kind="Email" Margin="0 3 5 0"/>
+                                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_EMAIL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Margin="25 -10 10 10"
+                                        Padding="0"
+                                        Height="30"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        Command="{Binding CommandThanhToanNo}"
+                                        CommandParameter="{Binding ElementName=WLapPhieuDangKy}"
+                                        VerticalAlignment="Bottom"  BorderThickness="0" >
+                                            <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                                <TextBlock Text="Nợ: " Margin="0 0 0 0" Foreground="Red" VerticalAlignment="Center"></TextBlock>
+                                                <TextBlock Text="{Binding SONOKHACHHANG}" Margin="0 0 0 0" Foreground="Red" VerticalAlignment="Center"></TextBlock>
+                                                <materialDesign:PackIcon Kind="Pencil" Margin="5 0 5 0" Width="15" Height="15" Foreground="Red" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Grid>
+
+                                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Height="30"
+                                    Width="70"
+                                    Grid.Column="2"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Command="{Binding CommandEditKhachHang}" BorderThickness="0"
+                                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                                    Margin="0 10 20 0">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF00070F" Offset="0"/>
+                                                <GradientStop Color="#FF4976A6" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        <materialDesign:PackIcon Kind="PencilPlus" Foreground="White"/>
+                                    </Button>
+                                </Grid>
+
+                                <!--<Grid Grid.Row="0" Visibility="{Binding ShowInfoKH}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding KH_ANH}"
+                                   Height="70" 
+                                   Width="70"
+                                   Grid.Column="0"
+                                   Margin="20 30 20 20" />
+
+                            <StackPanel Grid.Column="1" Margin="20 25 10 10">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                                           Text="{Binding KH_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+
+                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="PhoneCheck" Margin="0 3 5 0"/>
+                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_SDT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="Mã KH: "
+                                           Margin="0 10 0 0">
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="{Binding KH_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           Margin="0 10 0 0">
+                                    </TextBlock>
+                                </StackPanel>
+                                
+                                <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="0 0 10 10"
+                                    Padding="0"
+                                    Height="30"
+                                        HorizontalAlignment="Left"
+                                    Background="White"
+                                    Command="{Binding CommandDeleteItemGDV}"
+                                    VerticalAlignment="Bottom"  BorderThickness="0" >
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                        <TextBlock Text="Nợ: " Margin="0 0 0 0" Foreground="Red" VerticalAlignment="Center"></TextBlock>
+                                        <TextBlock Text="{Binding SONOKHACHHANG}" Margin="0 0 0 0" Foreground="Red" VerticalAlignment="Center"></TextBlock>
+                                        <materialDesign:PackIcon Kind="Pencil" Margin="5 0 5 0" Width="15" Height="15" Foreground="Red" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Margin="30 49 10 10">
+                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="Cake" Margin="0 0 5 0"/>
+                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_NGAYSINH, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="Email" Margin="0 3 5 0"/>
+                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_EMAIL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="3" Margin="30 49 10 10">
+                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="GenderMaleFemale" Margin="0 0 5 0"/>
+                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding KH_GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Height="30"
+                                    Width="70"
+                                    Grid.Column="4"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Command="{Binding CommandEditKhachHang}" BorderThickness="0"
+                                    HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF00070F" Offset="0"/>
+                                        <GradientStop Color="#FF4976A6" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <materialDesign:PackIcon Kind="PencilPlus" Foreground="White"/>
+                            </Button>
+                        </Grid>-->
+
+                                <!--Thong tin khach hang chua nap du lieu-->
+                                <Grid Grid.Row="0" Margin="10 30 10 10" Visibility="{Binding NullInfo}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <materialDesign:ColorZone Mode="PrimaryLight"
+                                                      VerticalAlignment="Stretch"
+                                                      Grid.Column="0"
+                                                      Height="90" Width="70"
+                                                      Background="White"
+                                                      BorderBrush="Black" 
+                                                      BorderThickness="0.4">
+                                        <materialDesign:PackIcon Kind="AccountCircle"
+                                                         Height="30" Width="30"
+                                                         VerticalAlignment="Center"
+                                                         HorizontalAlignment="Center"/>
+                                    </materialDesign:ColorZone>
+
+                                    <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                                       Text="Thông tin khách hàng"
+                                       Grid.Column="1">
+                                    </TextBlock>
+
+                                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Height="30"
+                                            Width="70"
+                                            Grid.Column="2"
+                                            materialDesign:ButtonAssist.CornerRadius="10"
+                                            Command="{Binding CommandAddKhachHang}"
+                                            BorderThickness="0"
+                                            HorizontalAlignment="Right" VerticalAlignment="Top"
+                                            Margin="0 -10 10 0">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF00070F" Offset="0"/>
+                                                <GradientStop Color="#FF4976A6" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        <materialDesign:PackIcon Kind="PencilPlus" Foreground="White"/>
+                                    </Button>
+                                </Grid>
+
+
+                                <Grid Grid.Row="1" Margin="30 10 30 10">
+                                    <Separator Margin="5" BorderThickness="0.1" BorderBrush="Black"></Separator>
+                                </Grid>
+
+                                <!--Thông tin phiếu đăng ký-->
+                                <Grid Grid.Row="2"  Margin="30 20 10 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                                        <ColumnDefinition Width="1.1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                           Text="Số phiếu ĐK: ">
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                           Text="{Binding PDK_STT}">
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <DatePicker materialDesign:HintAssist.Hint="Ngày đăng ký"
+                                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                            Margin="0 10 10 10"
+                                            IsEnabled="False"
+                                            SelectedDate="{Binding PDK_NGAYDK, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                                        <ComboBox materialDesign:HintAssist.Hint="Phòng" 
+                                                  Margin="0 5 10 5"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  Name="cbxPhong"
+                                                  ItemsSource="{Binding PHONG}"
+                                                  SelectedItem="{Binding SelectedPHONG, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="SelectionChanged">
+                                                    <i:InvokeCommandAction Command="{Binding CommandSelectedPHONG}"
+                                                               CommandParameter="{Binding ElementName=cbxPhong}"/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding P_SO}"></TextBlock>
+                                                        <TextBlock Text=" - "></TextBlock>
+                                                        <TextBlock Text="{Binding P_TEN}"></TextBlock>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1" Margin="0 20 0 0">
+                                        <ComboBox materialDesign:HintAssist.Hint="Cách thanh toán" 
+                                                  IsEditable="True"
+                                                  Margin="30 10 30 10"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  DisplayMemberPath="CTT_TEN"
+                                                  ItemsSource="{Binding CACHTHANHTOAN}"
+                                                  SelectedItem="{Binding SelectedCACHTHANHTOAN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                  Grid.Row="2">
+                                        </ComboBox>
+                                        <ComboBox materialDesign:HintAssist.Hint="Bác sĩ theo dỗi" 
+                                                  Margin="30 5 30 10"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding NHANVIEN}"
+                                                  SelectedItem="{Binding SelectedNHANVIEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                  Grid.Row="2">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Ellipse Width="30" Height="30" Margin="0 5 0 0">
+                                                            <Ellipse.Fill>
+                                                                <ImageBrush ImageSource="{Binding NV_ANH}"/>
+                                                            </Ellipse.Fill>
+                                                        </Ellipse>
+                                                        <TextBlock VerticalAlignment="Center" Margin="10 0 0 0" Text="{Binding NV_TEN}"></TextBlock>
+                                                        <TextBlock VerticalAlignment="Center" Text=" - "></TextBlock>
+                                                        <TextBlock VerticalAlignment="Center" Text="{Binding VT_TEN}"></TextBlock>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="2" Margin="0 20 0 0">
+                                        <DatePicker materialDesign:HintAssist.Hint="Ngày bắt đầu"
+                                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                            Margin="0 10 20 10"
+                                            SelectedDate="{Binding PDK_NGAYBDTH, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                                        <Button Style="{StaticResource MaterialDesignOutlinedButton}" 
+                                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                                Margin="0 10 10 10"
+                                                Padding="0"
+                                                Height="30"
+                                                Width="150"
+                                                HorizontalAlignment="Left"
+                                                Background="White" BorderThickness="2"
+                                                BorderBrush="CornflowerBlue"
+                                                Foreground="CornflowerBlue"
+                                                Command="{Binding CommandLapLich}">
+                                            <StackPanel Orientation="Horizontal" Margin="0 0 10 0" HorizontalAlignment="Right">
+                                                <materialDesign:PackIcon Kind="CalendarAdd" Margin="0 0 10 0" Width="25" Height="25" />
+                                                <TextBlock Text="Lập lịch" Margin="0 5 0 0"></TextBlock>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+
+                                <!--Dịch vụ khám-->
+                                <Grid Grid.Row="3" Margin="10 20 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0" Margin="20">
+                                        <Border BorderBrush="Black" BorderThickness="0.5">
+                                            <Image Source="{Binding GDV_ANH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </Border>
+                                    </Grid>
+
+
+                                    <StackPanel Grid.Column="1" Margin="0 20 0 0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="Gói dịch vụ:"
+                                               FontSize="22" Width="120">
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding GDV_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                               FontSize="22"
+                                               FontWeight="Bold"
+                                               Margin="10 0 0 0">
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="Loại dịch vụ:"
+                                               FontSize="13" Width="120">
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding LGDV_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                               FontSize="13"
+                                               FontWeight="Bold"
+                                               Margin="10 0 0 0">
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="Số liệu trình:"
+                                               FontSize="13" Width="120">
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding GDV_SOLAN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                               FontSize="13"
+                                               FontWeight="Bold"
+                                               Margin="10 0 0 0">
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="Giá gói:"
+                                               FontSize="13"
+                                               Width="120">
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding DONGIA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                               FontSize="13"
+                                               FontWeight="Bold"
+                                               Margin="10 0 0 0">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Grid.Row="4" Margin="20 20 20 10">
+                                    <Separator Margin="5" BorderThickness="0.1" BorderBrush="Black"></Separator>
+                                </Grid>
+
+                                <!--Control hiển thị giá-->
+                                <Grid  Grid.Row="5" Margin="25 20 25 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.4*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <Image Width="50" Height="50" 
+                                       Source="E:\LuanVanTotNghiep\Project\App\LVTN_QLSpa\LVTN_QLSpa\Image\Discount\sale-label.png"></Image>
+                                            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                           Text="{Binding GG_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           FontSize="20"
+                                           VerticalAlignment="Center"
+                                           Margin="10 0 0 0"
+                                           FontWeight="Bold">
+                                            </TextBlock>
+                                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"
+                                            Margin="20 0 0 0"
+                                           Visibility="Collapsed">
+                                                <materialDesign:PackIcon Kind="CloseCircleOutline" Margin="0 0 5 0" Height="25" Width="25"/>
+                                                <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="Không có chương trình khuyến mãi nào cho gói dịch vụ"
+                                               VerticalAlignment="Center">
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"
+                                            Margin="56 0 0 0">
+                                                <materialDesign:PackIcon Kind="CalendarCheckOutline" Margin="0 3 5 0"/>
+                                                <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding GG_NGAYBATDAU, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                </TextBlock>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"
+                                            Margin="40 0 0 0">
+                                                <materialDesign:PackIcon Kind="CalendarRemove" Margin="0 3 5 0"/>
+                                                <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding GG_NGAYKETTHUC, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"
+                                            Margin="40 0 0 0">
+                                                <materialDesign:PackIcon Kind="Sale" Margin="0 3 5 0"/>
+                                                <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                               Text="{Binding GG_PHANTRAMGIAM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <ComboBox materialDesign:HintAssist.Hint="Chương trình khuyến mãi" 
+                                          IsEditable="True"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                          DisplayMemberPath="GG_TEN"
+                                          ItemsSource="{Binding GIAMGIA}"
+                                          SelectedItem="{Binding SelectedGIAMGIA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          Grid.Column="1"
+                                      VerticalAlignment="Top">
+                                    </ComboBox>
+                                </Grid>
+
+
+                                <Grid Grid.Row="6" Margin="20 10 20 10">
+                                    <Separator Margin="5" BorderThickness="0.1" BorderBrush="Black"></Separator>
+                                </Grid>
+
+                                <Grid Grid.Row="7" Margin="20 10 20 10" VerticalAlignment="Bottom">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Margin="10 10 10 10"
+                                            materialDesign:ButtonAssist.CornerRadius="10"
+                                            Height="40"
+                                            Grid.Column="0"
+                                            Command="{Binding CommandAddPhieuDK}"
+                                            VerticalAlignment="Center" Background="#FF2D2F4C" BorderThickness="0">
+                                        <StackPanel Orientation="Horizontal" Margin="0 0 6 0">
+                                            <materialDesign:PackIcon Kind="ContentSave" Margin="0 0 5 0" Width="25" Height="25" />
+                                            <TextBlock Text="Lưu phiếu" Margin="0 5 0 0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Margin="10 10 10 10"
+                                            materialDesign:ButtonAssist.CornerRadius="10"
+                                            Height="40"
+                                            Grid.Column="2"
+                                            Command="{Binding CommandOpenPDT}"
+                                            CommandParameter="{Binding ElementName=WLapPhieuDangKy}"
+                                            VerticalAlignment="Center" Background="#FF2D2F4C" BorderThickness="0">
+                                        <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                            <materialDesign:PackIcon Kind="Receipt" Margin="0 0 5 0" Width="25" Height="25" />
+                                            <TextBlock Text="Phiếu chờ" Margin="0 5 0 0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Margin="10 10 10 10"
+                                            materialDesign:ButtonAssist.CornerRadius="10"
+                                            Height="40"
+                                            Grid.Column="1"
+                                            Command="{Binding CommandInLichTrinh}"
+                                            CommandParameter="{Binding ElementName=WLapPhieuDangKy}"
+                                            VerticalAlignment="Center" Background="#FF2D2F4C" BorderThickness="0">
+                                        <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                            <materialDesign:PackIcon Kind="Printer" Margin="0 0 5 0" Width="25" Height="25" />
+                                            <TextBlock Text="In lịch trình" Margin="0 5 0 0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Margin="10 10 10 10"
+                                            materialDesign:ButtonAssist.CornerRadius="10"
+                                            Height="40"
+                                            Grid.Column="3"
+                                            Command="{Binding CommandClosePDK}"
+                                            CommandParameter="{Binding ElementName=WLapPhieuDangKy}"
+                                            VerticalAlignment="Center"  BorderThickness="0" Background="#FFCA3C2A">
+                                        <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                            <materialDesign:PackIcon Kind="ArrowLeftThick" Margin="0 0 0 0" Width="25" Height="25" />
+                                            <TextBlock Text="Thoát" Margin="0 5 0 0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <!-- the following based on https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons -->
+                                <StackPanel Grid.Row="0" 
+                                            Orientation="Horizontal"
+                                            Margin="4">
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"
+                                                 Margin="4"
+                                                 Name="chkGDVLT"
+                                                 IsChecked="{Binding CheckGDVLT}"
+                                                 Content="DỊCH VỤ CÓ LIỆU TRÌNH" Width="380"
+                                                 BorderBrush="#FF2D2F4C" BorderThickness="1">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Checked">
+                                                <i:InvokeCommandAction Command="{Binding CommandCheckGDVLT}"
+                                                                       CommandParameter="{Binding ElementName=chkGDVLT}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </RadioButton>
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"
+                                                 Margin="4"
+                                                 Name="chkGDVNotLT"
+                                                 IsChecked="{Binding CheckGDVNotLT}"
+                                                 Content="DỊCH VỤ KHÔNG LIỆU TRÌNH" Width="380"
+                                                 BorderBrush="#FF2D2F4C" BorderThickness="1">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Checked">
+                                                <i:InvokeCommandAction Command="{Binding CommandCheckGDVNotLT}"
+                                                                       CommandParameter="{Binding ElementName=chkGDVLT}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </RadioButton>
+                                </StackPanel>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 0 0 20">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <Image Source="E:\LuanVanTotNghiep\Project\App\LVTN_QLSpa\LVTN_QLSpa\Image\Filter\filter.png" 
+                                                   Margin="20 15 0 0"
+                                                   VerticalAlignment="Center" 
+                                                   Height="25" Width="25"/>
+                                            <ComboBox materialDesign:HintAssist.Hint="Sắp xếp theo" 
+                                                      Margin="15 5 15 5"
+                                                      Width="140"
+                                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                      Name="cbxFilter"
+                                                      DisplayMemberPath="Name"
+                                                      ItemsSource="{Binding Filter}"
+                                                      SelectedItem="{Binding SelectedFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="SelectionChanged">
+                                                        <i:InvokeCommandAction Command="{Binding CommandSelectedFilter}"
+                                                                   CommandParameter="{Binding ElementName=cbxFilter}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </ComboBox>
+                                        </StackPanel>
+                                        <ComboBox materialDesign:HintAssist.Hint="Dịch vụ" 
+                                                  Margin="15 5 15 5"
+                                                  Width="230"
+                                                  Name="cbxDichVu"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  DisplayMemberPath="DV_TEN"
+                                                  ItemsSource="{Binding DICHVU}"
+                                                  SelectedItem="{Binding SelectedDICHVU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="SelectionChanged">
+                                                    <i:InvokeCommandAction Command="{Binding CommandSelectDICHVU}"
+                                                                   CommandParameter="{Binding ElementName=cbxDichVu}"/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </ComboBox>
+                                        
+                                        <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                                Margin="150 10 10 10"
+                                                Padding="0"
+                                                Height="35"
+                                                HorizontalAlignment="Center"
+                                                Background="White" BorderThickness="2"
+                                                BorderBrush="CornflowerBlue"
+                                                Width="150"
+                                                Foreground="CornflowerBlue"
+                                                Command="{Binding CommandInThongTinGDV}">   
+                                            <StackPanel Orientation="Horizontal" Margin="0 0 10 0" HorizontalAlignment="Right">
+                                                <materialDesign:PackIcon Kind="Printer" Margin="0 0 10 0" Width="25" Height="25" />
+                                                <TextBlock Text="In thông tin gói" Margin="0 5 0 0"></TextBlock>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <ListView ItemsSource="{Binding ListGoiDichVu}"
+                                      SelectedItem="{Binding SelectedGoiDichVu, Mode=OneWayToSource}"
+                                      Margin="10,20,2,0"
+                                      Name="lvGDV"
+                                      Grid.Row="1"
+                                      Background="Transparent"
+                                      BorderBrush="Transparent" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding CommandSelectGOIDICHVU}"
+                                                                   CommandParameter="{Binding ElementName=lvGDV}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <UniformGrid Columns="4" Rows="3">
+                                                </UniformGrid>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Vertical" Height="210">
+                                                    <Border>
+                                                        <Border.Effect>
+                                                            <DropShadowEffect Color="Black"
+                                                                      Direction="270"
+                                                                      ShadowDepth="1"
+                                                                      BlurRadius="10"/>
+                                                        </Border.Effect>
+                                                        <Image Source="{Binding GOIDICHVU.GDV_ANH}"
+                                                       Stretch="UniformToFill"
+                                                       Width="140" Height="140"
+                                                       HorizontalAlignment="Center"
+                                                       Margin="20 10 0 0">
+                                                            <Image.Clip>
+                                                                <EllipseGeometry RadiusX="60"
+                                                                         RadiusY="60"
+                                                                         Center="60,60"/>
+                                                            </Image.Clip>
+                                                        </Image>
+                                                    </Border>
+                                                    <TextBlock Text="{Binding GOIDICHVU.GDV_TEN}"
+                                                       MaxWidth="190"
+                                                       TextAlignment="Center"
+                                                       TextWrapping="Wrap"
+                                                       FontSize="15" Margin="0,5,0,0"
+                                                       HorizontalAlignment="Center"
+                                                       FontFamily="Sitka Subheading"
+                                                       FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding DONGIA}"
+                                                       FontFamily="Sitka Subheading"
+                                                       HorizontalAlignment="Center"
+                                                       Foreground="Red"
+                                                       FontSize="13"
+                                                       Padding="1">
+                                   <Bold><Underline>đ</Underline></Bold>
+                                                    </TextBlock>
+
+                                                </StackPanel>
+
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Card>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,274 @@
+﻿<UserControl x:Class="LVTN_QLSpa.View.NVQL_LichHenVaDKKham.QLLichHen.UC_LichHen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LVTN_QLSpa.View.NVQL_LichHenVaDKKham.QLLichHen"
+             mc:Ignorable="d" 
+             Name="wLichHen"
+             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             DataContext="{StaticResource LichHenVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=wLichHen}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="E:\LuanVanTotNghiep\Project\App\LVTN_QLSpa\LVTN_QLSpa\Assets\Icons\calendar\calendar.png"
+                   Width="70"
+                   Height="70"
+                   HorizontalAlignment="Left"
+                   Margin="5 0 0 0"></Image>
+            
+            <TextBlock Text="LỊCH HẸN"
+                               HorizontalAlignment="Center"
+                               FontSize="30"
+                               Margin="0 10 0 0"
+                               Grid.Column="1">
+            </TextBlock>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="10"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Height="40"
+                        Width="180"
+                        Command="{Binding CommandTaoLichHen}"
+                        VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                        <materialDesign:PackIcon Kind="CalendarPlus" Margin="0 0 5 0" Width="25" Height="25" />
+                        <TextBlock Text="Tạo lịch hẹn" Margin="0 5 0 0"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="10"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Height="40"
+                        Width="180"
+                        Command="{Binding CommandDangKyDichVu}"
+                        VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                        <materialDesign:PackIcon Kind="TextBoxPlusOutline" Margin="0 0 5 0" Width="25" Height="25" />
+                        <TextBlock Text="Đăng ký dịch vụ" Margin="0 5 0 0"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="10"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Height="40"
+                        Width="50"
+                        Padding="11 8 5 10"
+                        Command="{Binding CommandLamMoiLichHen}"
+                        VerticalAlignment="Bottom"  BorderThickness="0" Background="#FF2D2F4C">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                        <materialDesign:PackIcon Kind="Refresh" Margin="0 0 5 0" Width="25" Height="25" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            
+        </Grid>
+
+        <materialDesign:Card UniformCornerRadius="10" Grid.Row="1" Margin="10 0 10 20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:PackIcon Kind="Magnify"
+                                                         Width="25"
+                                                         Height="25"
+                                                         Grid.Column="0"
+                                                         Margin="0 15 0 0"/>
+                        <TextBox materialDesign:HintAssist.Hint="Nhập từ khóa tìm kiếm"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding KeySearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Grid.Column="1"
+                                 Name="txtKeySearch"
+                                 Margin="10">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding CommandKeySearch}"
+                                                               CommandParameter="{Binding ElementName=txtKeySearch}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Margin="50 10 50 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <DatePicker Margin="15 10 15 10"
+                                    materialDesign:HintAssist.Hint="Ngày tái khám"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                                    Grid.Column="0"
+                                    SelectedDate="{Binding LH_NGAYBD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DatePicker Margin="15 10 15 10"
+                                    materialDesign:HintAssist.Hint="Ngày tái khám"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                                    Grid.Column="1"
+                                    SelectedDate="{Binding LH_NGAYKT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                Margin="15 10 15 10"
+                                Grid.Column="2"
+                                materialDesign:ButtonAssist.CornerRadius="5"
+                                Command="{Binding CommandLocNgayLH}"
+                                Background="#FF2D2F4C" BorderThickness="0"
+                                VerticalAlignment="Bottom"
+                                Content="Lọc">
+                        </Button>
+                    </Grid>
+
+                    <ComboBox materialDesign:HintAssist.Hint="Trạng thái lịch hẹn" 
+                              Grid.Column="2"
+                              Margin="15 10 15 10"
+                              Name="cbxTrangThai"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              ItemsSource="{Binding TRANGTHAI}"
+                              SelectedItem="{Binding SelectedTRANGTHAI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding CommandSelectedTRANGTHAI}"
+                                   CommandParameter="{Binding ElementName=cbxTrangThai}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Width="15" Height="15" Margin="0 0 0 0">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{Binding Color}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <TextBlock Margin="10 2 0 2 " Text="{Binding Name}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+
+                <ListView ItemsSource="{Binding ListLichHen}" 
+                          SelectedItem="{Binding SelectedLichHen, Mode=OneWayToSource}"
+                          Grid.Row="1" 
+                          Name="lvwLichHen">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding CommandShowDetailLichHen}"
+                                   CommandParameter="{Binding ElementName=lvwLichHen}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Khách hàng">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding KHACHHANG.KH_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ngày đến">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding LH_NGAYDEN, StringFormat='dd/MM/yyyy'}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Thời gian đến">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding LH_THOIGIANDEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ghi chú">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding LH_GHICHU}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Trạng thái">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding LH_TRANGTHAI}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Gói dịch vụ">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding GOIDICHVU.GDV_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Nhân viên">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding LICHLAMVIEC.NHANVIEN.NV_HOTEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

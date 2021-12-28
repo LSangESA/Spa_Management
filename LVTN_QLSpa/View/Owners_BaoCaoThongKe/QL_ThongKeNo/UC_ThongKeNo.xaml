@@ -1,0 +1,396 @@
+﻿<UserControl x:Class="LVTN_QLSpa.View.Owners_BaoCaoThongKe.QL_ThongKeNo.UC_ThongKeNo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LVTN_QLSpa.View.Owners_BaoCaoThongKe.QL_ThongKeNo"
+             mc:Ignorable="d" 
+             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             DataContext="{StaticResource ThongKeNoVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=wLapPhieuThu}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.35*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card
+                                 Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                 Padding="0"
+                                 Grid.Row="0"
+                                 Margin="20"
+                                 UniformCornerRadius="15">
+                <materialDesign:Card.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF08FBFF" Offset="0.234"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </materialDesign:Card.Background>
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                           Margin="16 16 16 4"
+                                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                           Text="Nợ chưa thu"
+                                   FontWeight="Bold"
+                                           Foreground="Black">
+                        </TextBlock>
+
+                        <materialDesign:PackIcon Kind="CurrencyUsd" 
+                                                 Grid.Column="1" 
+                                                 Margin="15"
+                                                 Width="30"
+                                                 Height="30"
+                                                 Foreground="Black"
+                                                 HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Margin="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding TONGKHACHHANG}" Margin="0 10 0 0" HorizontalAlignment="Center" Foreground="Black" FontSize="22"></TextBlock>
+                                <TextBlock Text="Khách hàng" Margin="0 5 0 0" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="13"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding TONGTIENNO}" Margin="0 10 0 0" HorizontalAlignment="Center" Foreground="Black" FontSize="22"></TextBlock>
+                                <TextBlock Text="Tổng nợ" Margin="0 5 0 0" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="13"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Margin="20" UniformCornerRadius="10" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" 
+                                Orientation="Horizontal"
+                                Margin="10">
+                        <Image Source="E:\LuanVanTotNghiep\Project\App\LVTN_QLSpa\LVTN_QLSpa\Image\Filter\filter.png"
+                               Width="20"
+                               VerticalAlignment="Top"
+                               Height="20"
+                               Margin="0 0 10 0"></Image>
+                        <TextBlock Text="Bộ lọc" FontSize="18"
+                                   VerticalAlignment="Top"></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Margin="10">
+                        <RadioButton GroupName="ThongKeNo"
+                                     Style="{StaticResource MaterialDesignRadioButton}"
+                                     Content="Ngày tùy chọn"
+                                     IsChecked="{Binding CheckTuyChon}"/>
+                        <DatePicker materialDesign:HintAssist.Hint="Ngày bắt đầu"
+                                    Margin="20 5 20 5"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                    SelectedDate="{Binding NGAYBATDAU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DatePicker materialDesign:HintAssist.Hint="Ngày kết thúc"
+                                    Margin="20 5 20 5"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                    SelectedDate="{Binding NGAYKETTHUC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <RadioButton Style="{StaticResource MaterialDesignRadioButton}"
+                                     Margin="0 50 0 0"
+                                     Content="Thời gian cụ thể"
+                                     GroupName="ThongKeNo"
+                                     IsChecked="{Binding CheckCuThe}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox materialDesign:HintAssist.Hint="Tháng" 
+                                      IsEditable="True"
+                                      Margin="20 5 10 5"
+                                      Grid.Column="0"
+                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding THANG}"
+                                      SelectedItem="{Binding SelectedTHANG, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </ComboBox>
+                            <ComboBox materialDesign:HintAssist.Hint="Năm" 
+                                      IsEditable="True"
+                                      Margin="10 5 20 5"
+                                      Grid.Column="1"
+                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding NAM}"
+                                      SelectedItem="{Binding SelectedNAM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </ComboBox>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 180 0 0">
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 10 10 20"
+                                    Height="35"
+                                    Command="{Binding CommandLoc}" BorderThickness="0.5"
+                                    Width="120"
+                                    BorderBrush="Black"
+                                    Foreground="Black"
+                                    Background="White">
+                                <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                    <materialDesign:PackIcon Kind="FilterMenu" Margin="0 0 10 0" Width="25" Height="25" />
+                                    <TextBlock Text="Lọc" Margin="0 5 0 0"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10 10 10 20"
+                                    Height="35"
+                                    Command="{Binding CommandBoLoc}" BorderThickness="0.5"
+                                    Width="120"
+                                    BorderBrush="Black"
+                                    Foreground="Black"
+                                    Background="White">
+                                <StackPanel Orientation="Horizontal" Margin="0 0 10 0">
+                                    <materialDesign:PackIcon Kind="CloseCircle" Margin="0 0 10 0" Width="25" Height="25" />
+                                    <TextBlock Text="Bỏ lọc" Margin="0 5 0 0"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Margin="10" UniformCornerRadius="10" Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="10 5 50 0" HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" Margin="0 10 0 0"/>
+                            <TextBox materialDesign:HintAssist.Hint="Tìm thông tin khách hàng"
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                             Text="{Binding KeySearchKH}"
+                                             Width="250"/>
+                        </StackPanel>
+                        <materialDesign:PopupBox HorizontalAlignment="Right"
+                                                 StaysOpen="True"
+                                                 VerticalAlignment="Top"
+                                                 Padding="2 0 2 0"
+                                                 Margin="0 10 0 0">
+                            <StackPanel Width="200">
+                                <Button Content="Xuất Excel" 
+                                        Margin="10 0 10 10"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </Grid>
+
+                    <ListView ItemsSource="{Binding ListKhachHangNo}"
+                              SelectedItem="{Binding SelectedKhachHangNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Grid.Row="1" 
+                              Name="lvwKhachHang">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding CommandSelectedKhachHangNo}"
+                                   CommandParameter="{Binding ElementName=lvwKhachHang}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã KH">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding KH_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Họ tên">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding KH_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Số điện thoại">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding KH_SDT}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Ngày khám cuối">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding KH_NGAYKHAMCUOI, StringFormat=dd/MM/yyyy}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Số phiếu nợ">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding KH_TONGPHIEUNO}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Tổng nợ">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding KH_TONGNO}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </materialDesign:Card>
+
+            <materialDesign:Card Margin="10 10 10 20" UniformCornerRadius="10" Grid.Row="1">
+                <Grid>
+                    <!--<Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="10 5 50 0" HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" Margin="0 10 0 0"/>
+                            <TextBox materialDesign:HintAssist.Hint="Nhập từ khóa tìm kiếm"
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                             Text="{Binding KeySearchPDT}"
+                                             Width="250"/>
+                        </StackPanel>
+                    </Grid>-->
+
+                    <ListView ItemsSource="{Binding ListPhieuDieuTriNo}"
+                              SelectedItem="{Binding SelectedPhieuDieuTriNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Grid.Row="1">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Số PDK">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding PDK_STT}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Số PDT">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding PDT_STT}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Gói dịch vụ">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding GDV_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Ngày khám">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding PDT_NGAYKHAM}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Thành tiền">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding THANHTIEN, StringFormat=\{0:n0\}}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Giá giảm">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding GIAGIAM, StringFormat=\{0:n0\}}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Tổng thu">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding TONGTHU, StringFormat=\{0:n0\}}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</UserControl>

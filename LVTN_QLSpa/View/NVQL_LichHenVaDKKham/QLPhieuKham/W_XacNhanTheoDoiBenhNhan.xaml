@@ -1,0 +1,72 @@
+﻿<Window x:Class="LVTN_QLSpa.View.NVQL_LichHenVaDKKham.QLPhieuKham.W_XacNhanTheoDoiBenhNhan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_QLSpa.View.NVQL_LichHenVaDKKham.QLPhieuKham"
+        mc:Ignorable="d"
+        Title="W_XacNhanTheoDoiBenhNhan" Height="170" Width="350"
+        Name="wXacNhanLapLich"
+        
+        xmlns:uc="clr-namespace:LVTN_QLSpa.UserControlSpa"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        DataContext="{StaticResource XacNhanTheoDoiBenhNhanVM}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=wXacNhanLapLich}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="15 15 15 15">
+            <materialDesign:Card UniformCornerRadius="15">
+                <StackPanel>
+                    <TextBlock Text="Lập lịch khám cho bác sĩ theo dỗi"
+                               FontSize="20"
+                               Margin="15 20 0 0">
+                    </TextBlock>
+                    <CheckBox Content="Lập lịch" 
+                              Margin="15"
+                              FontSize="15"
+                              materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                              IsChecked="{Binding CheckLapLichBS}">
+                    </CheckBox>
+                    <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                            Margin="110 10 20 10"
+                            Padding="0"
+                            Height="35"
+                            HorizontalAlignment="Right"
+                            Background="White" 
+                            BorderThickness="2"
+                            BorderBrush="Green"
+                            Width="150"
+                            Foreground="Green"
+                            Command="{Binding CommandLapLichBacSi}"
+                            CommandParameter="{Binding ElementName=wXacNhanLapLich}">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 10 0" HorizontalAlignment="Right">
+                            <materialDesign:PackIcon Kind="ClipboardCheckOutline" Margin="0 0 10 0" Width="25" Height="25" />
+                            <TextBlock Text="Xác nhận" Margin="0 5 0 0"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </materialDesign:Card>
+        </Border>
+    </Grid>
+</Window>

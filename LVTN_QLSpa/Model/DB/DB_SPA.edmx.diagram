@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b31bf2e87ea94be4b30b66c42af522ff" Name="Diagram1">
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CACHTHANHTOAN" Width="1.5" PointX="3" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CALAMVIEC" Width="1.5" PointX="3.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CHIDINH" Width="1.5" PointX="9.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CHITIETPHONG" Width="1.5" PointX="13" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CHUCNANG" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CHUYENMON" Width="1.5" PointX="11" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.CHUYENMONNHANVIEN" Width="1.5" PointX="13.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.DG_GDV" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.DG_LT" Width="1.5" PointX="7.5" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.DICHVU" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.DVT" Width="1.5" PointX="5.25" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.GOIDICHVU" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.GIAMGOIDICHVU" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.GIAMGIA" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.GIAMGIA_PDK" Width="1.5" PointX="10.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.HINHTHUCTHANHTOAN" Width="1.5" PointX="8.25" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.HOATCHAT" Width="1.5" PointX="5.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.HUYENQUAN" Width="1.5" PointX="1.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.KHACHHANG" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LGG_GG" Width="1.5" PointX="10.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LICHHEN" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LICHLAMVIEC" Width="1.5" PointX="6" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LICHTRINHDIEUTRI" Width="1.5" PointX="7.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LIEUTRINH" Width="1.5" PointX="5.25" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LOAIGOIDICHVU" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.LOAIGIAMGIA" Width="1.5" PointX="8" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.NV_PDT" Width="1.5" PointX="12.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.NGAY" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.NHANVIEN" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.NHASX" Width="1.5" PointX="5.25" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PT_PDT" Width="1.5" PointX="12.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PHIEUDANGKY" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PHIEUDIEUTRI" Width="1.5" PointX="7.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PHIEUTHU" Width="1.5" PointX="10.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PHONG" Width="1.5" PointX="3.75" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PHUONGPHAP" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.PHUTRACHGOI" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.QUYEN" Width="1.5" PointX="11" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.TINHTHANH" Width="1.5" PointX="1.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.THUOC" Width="1.5" PointX="7.5" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.VAITRO" Width="1.5" PointX="8.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.XAPHUONG" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUDANG__CTT_M__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHLAMVI__CLV_M__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHIDINH__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHIDINH__T_MA__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHITIETPH__VT_MA__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHITIETPHO__P_MA__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__QUYEN__CN_MA__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHUYENMON__CM_MA__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHUYENMON__VT_MA__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__CHUYENMON__NV_MA__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__DG_GDV__GDV_MA__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__DG_GDV__THOIGIAN__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__DG_LT__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__DG_LT__THOIGIAN__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GOIDICHVU__PP_MA__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__THUOC__DVT_MA__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GOIDICHVU__LGDV___3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GOIDICHVU__PP_MA__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GIAMGOIDI__GDV_M__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHHEN__GDV_MA__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LIEUTRINH__LT_NG__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUDANG__GDV_M__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHUTRACHG__GDV_M__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GIAMGOIDI__GG_MA__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GIAMGIA_P__GG_MA__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LGG_GG__GG_MA__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__GIAMGIA_P__PDK_S__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUTHU__HTTT_M__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__THUOC__HC_MA__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__HUYENQUAN__TT_MA__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__XAPHUONG__HQ_MA__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__KHACHHANG__XP_MA__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHHEN__KH_MA__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUDANG__KH_MA__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LGG_GG__LGG_MA__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHHEN__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHLAMVI__NV_MA__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHLAMVI__THOIG__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHLAMVIE__P_MA__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHTRINH__PDK_S__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__LICHTRINHDIEUTRI__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__NV_PDT__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__NV_PDT__NV_MA__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__NHANVIEN__XP_MA__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUDANG__NV_MA__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUTHU__NV_MA__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHUTRACHG__NV_MA__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__THUOC__HC_MA__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PT_PDT__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PT_PDT__PT_STT__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__PHIEUDIEU__PDK_S__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__QUYEN__VT_MA__21B6055D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LVTN_HTQL_SPAModel.DICHVUPHONG" Width="1.5" PointX="10" PointY="26.125" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__DICHVUPHO__GDV_M__634EBE90" />
+        <AssociationConnector Association="LVTN_HTQL_SPAModel.FK__DICHVUPHON__P_MA__625A9A57" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

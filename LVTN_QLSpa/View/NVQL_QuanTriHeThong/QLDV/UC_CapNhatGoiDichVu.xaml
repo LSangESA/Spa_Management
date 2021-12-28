@@ -1,0 +1,426 @@
+﻿<UserControl x:Class="LVTN_QLSpa.View.QLDV.UC_CapNhatGoiDichVu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LVTN_QLSpa.View.QLDV"
+             mc:Ignorable="d"
+             Name="wGoiDichVu"
+             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             DataContext="{StaticResource CapNhatGoiDichVuVM}" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindow}"
+                                   CommandParameter="{Binding ElementName=wGoiDichVu}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Form nhập liệu-->
+        <materialDesign:Card Grid.Column="0" Margin="10" UniformCornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="0.2" Width="150" Height="90" Margin="20 20 0 10">
+                        <Image Source="{Binding GDV_ANH}"
+                               Margin="0"></Image>
+                    </Border>
+                    <TextBox materialDesign:HintAssist.Hint="Hình ảnh"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             Margin="30 10 30 10"
+                             Text="{Binding GDV_ANH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Column="1"
+                             VerticalAlignment="Bottom"
+                             Name="txtSourceImg">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDoubleClick">
+                                <i:InvokeCommandAction Command="{Binding CommandAddImageGDV}"
+                                                                   CommandParameter="{Binding ElementName=txtSourceImg}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
+                
+                <!--Ma GDV-->
+                <Grid Grid.Row="1">
+                    <TextBox materialDesign:HintAssist.Hint="Mã gói DV"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         Margin="30 10 30 10"
+                                         Text="{Binding GDV_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         IsEnabled="False">
+                    </TextBox>
+                </Grid>
+
+                <!--Ten GDV-->
+                <Grid Grid.Row="2">
+                    <TextBox materialDesign:HintAssist.Hint="Tên gói DV"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         Margin="30 10 30 10"
+                                         Text="{Binding GDV_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Name="txtGDV_TEN">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding AddIdCommandGDV}"
+                                                                   CommandParameter="{Binding ElementName=txtGDV_TEN}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
+
+                <!--So lan GDV-->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}"
+                                 IsChecked="{Binding CheckedCoLieuTrinh}"
+                                 Content="Có liệu trình"
+                                 Margin="28 15 30 10"
+                                 Grid.Column="0">
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked">
+                                <i:InvokeCommandAction Command="{Binding FormatPriceCommandGDV}"
+                                                       CommandParameter="{Binding ElementName=txtGDV_DONGIA}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}"
+                                 IsChecked="{Binding CheckedKhongLieuTrinh}"
+                                 Content="Không liệu trình"
+                                 Grid.Column="1"
+                                 x:Name="rdKoLieuTrinh">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked">
+                                <i:InvokeCommandAction Command="{Binding CommandCheckKhongLieuTrinh}"
+                                                       CommandParameter="{Binding ElementName=rdKoLieuTrinh}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CommandUnCheckKhongLieuTrinh}"
+                                                       CommandParameter="{Binding ElementName=rdKoLieuTrinh}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
+                </Grid>
+
+                <!--Gia GDV-->
+                <TextBox materialDesign:HintAssist.Hint="Số lần liệu trình"
+                         Grid.Row="4"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Margin="30 10 30 10"
+                         Text="{Binding GDV_SOLAN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Visibility="{Binding HiddenSoLanLieuTrinh}"/>
+
+                <Grid Grid.Row="5">
+                    <TextBox materialDesign:HintAssist.Hint="Giá gói"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             Margin="30 10 30 10"
+                             Text="{Binding GDV_DONGIA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Name="txtGDV_DONGIA" TextChanged="TxtGDV_DONGIA_TextChanged">
+                    </TextBox>
+                </Grid>
+
+                <!--Phuong phap GDV-->
+                <Grid Grid.Row="6">
+                    <ComboBox materialDesign:HintAssist.Hint="Phương pháp" 
+                                          IsEditable="True"
+                                          Margin="30 10 30 10"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                          DisplayMemberPath="PP_TEN"
+                                          ItemsSource="{Binding PHUONGPHAP}"
+                                          SelectedItem="{Binding SelectedPP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </ComboBox>
+                </Grid>
+
+                <!--Dich vu GDV-->
+                <Grid Grid.Row="7">
+                    <ComboBox materialDesign:HintAssist.Hint="Dịch vụ" 
+                                          IsEditable="True"
+                                          Margin="30 10 30 10"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                          DisplayMemberPath="DV_TEN"
+                                          ItemsSource="{Binding DICHVU}"
+                                          SelectedItem="{Binding SelectedDV, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </ComboBox>
+                </Grid>
+
+                <!--Mo ta pp-->
+                <Grid Grid.Row="8">
+                    <TextBox
+                                    materialDesign:HintAssist.Hint="Mô tả gói dịch vụ"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap"
+                                    VerticalAlignment="Top"
+                                    VerticalScrollBarVisibility="Auto"
+                                    Margin="30 15 30 15" 
+                                    Height="80"
+                                    Text="{Binding GDV_MOTA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+
+                <!--Button Control-->
+                <Grid Grid.Row="9" Height="125">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Add-->
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Grid.Column="0"
+                            Height="70"
+                                    Command="{Binding CommandAddGDV}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                        <StackPanel Margin="0 0 6 0">
+                            <materialDesign:PackIcon Kind="Plus"
+                                                     Width="25" 
+                                                     Height="25" 
+                                                     Margin="0 0 0 5"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="Thêm" 
+                                       HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Edit-->
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Grid.Column="1"
+                            Height="70"
+                                    Command="{Binding CommandEditGDV}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                        <StackPanel Margin="0 0 6 0">
+                            <materialDesign:PackIcon Kind="ContentSaveEditOutline"
+                                                     Width="25" 
+                                                     Height="25" 
+                                                     Margin="0 0 0 5"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="Sửa" 
+                                       HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Delete-->
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Margin="10"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Grid.Column="2"
+                            Height="70"
+                                    Command="{Binding CommandDeleteGDV}"
+                                    VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                        <StackPanel Margin="0 0 6 0">
+                            <materialDesign:PackIcon Kind="DeleteOutline"
+                                                     Width="25" 
+                                                     Height="25" 
+                                                     Margin="0 0 0 5"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="Xóa" 
+                                       HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                            Margin="10"
+                            materialDesign:ButtonAssist.CornerRadius="10"
+                            Grid.Column="3"
+                            Height="70"
+                            Command="{Binding CommandClearGDV}"
+                            VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                        <StackPanel Margin="0 0 6 0">
+                            <materialDesign:PackIcon Kind="Refresh"
+                                                     Width="25" 
+                                                     Height="25" 
+                                                     Margin="0 0 0 5"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="Làm mới" 
+                                       HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+
+        <!--Bảng dữ liệu-->
+        <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="10 5 50 0" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" Margin="0 10 0 0"/>
+                        <TextBox materialDesign:HintAssist.Hint="Nhập từ khóa tìm kiếm"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding KeySearchGDV, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     Width="250"
+                                     Name="txtKeySearchGDV">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding KeySearchCommandGDV}"
+                                                               CommandParameter="{Binding ElementName=txtKeySearchGDV}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </StackPanel>
+                    <materialDesign:PopupBox HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             Padding="2 0 2 0"
+                                             Margin="0 10 0 0"
+                                             StaysOpen="True">
+                        <StackPanel Width="250">
+                            <Border BorderBrush="Black" BorderThickness="0 0 0 0.1" Margin="0 0 0 10">
+                                <Button Content="In thông tin gói dịch vụ"
+                                        Command="{Binding CommandInThongTinGDV}"></Button>
+                            </Border>
+                            
+                            <Border BorderBrush="Black" BorderThickness="0 0 0 0.1" Margin="0 0 0 10">
+                                <ComboBox materialDesign:HintAssist.Hint="Dịch vụ" 
+                                              IsEditable="True"
+                                              Margin="15 8 15 10"
+                                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                              DisplayMemberPath="DV_TEN"
+                                              ItemsSource="{Binding DVFilter}"
+                                              SelectedItem="{Binding SelectedDVFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </ComboBox>
+                            </Border>
+
+                            <Border BorderBrush="Black" BorderThickness="0 0 0 0.1" Margin="0 0 0 10">
+                                <ComboBox materialDesign:HintAssist.Hint="Loại dịch vụ" 
+                                              IsEditable="True"
+                                              Margin="15 8 15 10"
+                                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                              DisplayMemberPath="LGDV_TEN"
+                                              ItemsSource="{Binding LDVFilter}"
+                                              SelectedItem="{Binding SelectedLDVFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </ComboBox>
+                            </Border>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </Grid>
+                <ListView ItemsSource="{Binding ListGoiDichVu}" Grid.Row="1" SelectedItem="{Binding SelectedItemGDV, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã nhân viên">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="{Binding GOIDICHVU.GDV_ANH}" Height="70" Width="70"></Image>
+                                                <TextBlock Text="{Binding GOIDICHVU.GDV_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Tên GDV">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding GOIDICHVU.GDV_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Số liệu trình">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding GOIDICHVU.GDV_SOLAN}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Giá gói">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding DONGIA, StringFormat='0#,##0 đ'}" Margin="18 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Phương pháp">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding GOIDICHVU.PHUONGPHAP.PP_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Dịch vụ">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding GOIDICHVU.DICHVU.DV_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Loại dịch vụ">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding GOIDICHVU.LOAIGOIDICHVU.LGDV_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Mô tả">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="70">
+                                            <TextBlock Text="{Binding GOIDICHVU.GDV_MOTA}" Margin="20 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+        </materialDesign:Card>
+    </Grid>
+
+</UserControl>

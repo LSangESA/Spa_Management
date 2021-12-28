@@ -1,0 +1,883 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6CA1911-610B-42F2-9E81-F19B40B70922}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LVTN_QLSpa</RootNamespace>
+    <AssemblyName>LVTN_QLSpa</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=21.11.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.21.11.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="De.TorstenMandelkow.MetroChart, Version=0.9.5818.20693, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModernUICharts.WPF.Beta.0.9.1\lib\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="InteractiveDataDisplay.WPF, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InteractiveDataDisplay.WPF.1.0.0\lib\net452\InteractiveDataDisplay.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.1.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.1\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.1.0.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.1.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Reactive, Version=4.1.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.4.1.2\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.4.1.2\lib\net46\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.4.1.2\lib\net46\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\DAO\DAO_Address.cs" />
+    <Compile Include="Model\DAO\DAO_CaLamViec.cs" />
+    <Compile Include="Model\DAO\DAO_ChiDinh.cs" />
+    <Compile Include="Model\DAO\DAO_ChuyenMon.cs" />
+    <Compile Include="Model\DAO\DAO_DichVu.cs" />
+    <Compile Include="Model\DAO\DAO_GiamGia.cs" />
+    <Compile Include="Model\DAO\DAO_GoiDichVu.cs" />
+    <Compile Include="Model\DAO\DAO_HTTT.cs" />
+    <Compile Include="Model\DAO\DAO_KhachHang.cs" />
+    <Compile Include="Model\DAO\DAO_LichHen.cs" />
+    <Compile Include="Model\DAO\DAO_LichLamViec.cs" />
+    <Compile Include="Model\DAO\DAO_LichTrinhDieuTri.cs" />
+    <Compile Include="Model\DAO\DAO_LieuTrinh.cs" />
+    <Compile Include="Model\DAO\DAO_Ngay.cs" />
+    <Compile Include="Model\DAO\DAO_NhanVien.cs" />
+    <Compile Include="Model\DAO\DAO_PhieuDangKy.cs" />
+    <Compile Include="Model\DAO\DAO_PhieuDieuTri.cs" />
+    <Compile Include="Model\DAO\DAO_PhieuThu.cs" />
+    <Compile Include="Model\DAO\DAO_Phong.cs" />
+    <Compile Include="Model\DAO\DAO_Thuoc.cs" />
+    <Compile Include="Model\DAO\DAO_VaiTro.cs" />
+    <Compile Include="Model\DAO\DAO_PhuongPhap.cs" />
+    <Compile Include="Model\DAO\DataProvider.cs" />
+    <Compile Include="Model\DB\CACHTHANHTOAN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\CALAMVIEC.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\CHIDINH.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\CHITIETPHONG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\CHUCNANG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\CHUYENMON.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\CHUYENMONNHANVIEN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DB_SPA.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SPA.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DB_SPA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DB_SPA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SPA.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DG_GDV.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DG_LT.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DICHVU.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DICHVUPHONG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\DVT.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\GIAMGIA.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\GIAMGIA_PDK.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\GIAMGOIDICHVU.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\GOIDICHVU.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\HINHTHUCTHANHTOAN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\HOATCHAT.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\HUYENQUAN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\KHACHHANG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LGG_GG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LICHHEN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LICHLAMVIEC.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LICHTRINHDIEUTRI.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LIEUTRINH.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LOAIGIAMGIA.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\LOAIGOIDICHVU.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\NGAY.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\NHANVIEN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\NHASX.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\NV_PDT.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PHIEUDANGKY.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PHIEUDIEUTRI.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PHIEUTHU.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PHONG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PHUONGPHAP.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PHUTRACHGOI.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\PT_PDT.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\QUYEN.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\THUOC.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\TINHTHANH.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\VAITRO.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB\XAPHUONG.cs">
+      <DependentUpon>DB_SPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelClass\ClassChiDinh.cs" />
+    <Compile Include="Model\ModelClass\ClassChuyenMon.cs" />
+    <Compile Include="Model\ModelClass\ClassChuyenMonNhanVien.cs" />
+    <Compile Include="Model\ModelClass\ClassGiamGia.cs" />
+    <Compile Include="Model\ModelClass\ClassGoiDichVu.cs" />
+    <Compile Include="Model\ModelClass\ClassKhachHang.cs" />
+    <Compile Include="Model\ModelClass\ClassLichTrinhDieuTri.cs" />
+    <Compile Include="Model\ModelClass\ClassListLichlamViec.cs" />
+    <Compile Include="Model\ModelClass\ClassNhanVien.cs" />
+    <Compile Include="Model\ModelClass\ClassPhieuDieuTri.cs" />
+    <Compile Include="Model\ModelClass\ClassPhieuDieuTriKH.cs" />
+    <Compile Include="Model\ModelClass\ClassPhieuDieuTriLichSuKham.cs" />
+    <Compile Include="Model\ModelClass\ClassPhieuThu.cs" />
+    <Compile Include="Model\ModelClass\ClassToaThuoc.cs" />
+    <Compile Include="Model\ModelClass\ClassXuLyChuoi.cs" />
+    <Compile Include="UserControlSpa\UseControlUC.xaml.cs">
+      <DependentUpon>UseControlUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ChuSPA_QuanLyThongKe\MainUserStatisticViewModel.cs" />
+    <Compile Include="ViewModel\ChuSPA_QuanLyThongKe\ThongKeNoViewModel.cs" />
+    <Compile Include="ViewModel\ControlBarViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\CapNhatDanhMucThuocViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\DanhSachChoViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\DoiNgayKhamViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\GhiNhanBenhViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\HoSoBenhAnViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\InToaThuocViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\LichSuDangKyDVViewModel.cs" />
+    <Compile Include="ViewModel\NVBS_QuanLyKhamVaDieuTri\MainUserManageExaminationAndTreatmentViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\BaoCaoPhieuThuViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\InLichTrinhDieuTriViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\InPhieuChoViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\InPhieuThuViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\LapPhieuDangKyViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\LapPhieuDieuTriViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\LapPhieuThuViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\LichHenViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\MainUserManageAppointmentsAndRegistrationsViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\MainViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\TaoLichHenViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\ThemKhachHangPDKViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\ThongTinKhachHangViewModel.cs" />
+    <Compile Include="ViewModel\NVDK_LichHenVaDangKy\XacNhanTheoDoiBenhNhanViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatCaLamViecViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatDichVuViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatGoiDichVuViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatHinhThucThanhToanViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatLieuTrinhViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatNhanVienViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatPhongViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\CapNhatPhuongPhapViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\ChuongTrinhKhuyenMaiViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\GuiTinNhanViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\InfoLichLamViecNhanVienViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\InThongTinGoiDichVuViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\LapLichLamViecViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\LichLamViecViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\MainUserManageViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\PhuTrachDichVuViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\ThemPhuTrachDichVuViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\ThongTinNhanVienViewModel.cs" />
+    <Compile Include="ViewModel\NVQL_QuanTriHeThong\VaiTroVaChuyenMonViewModel.cs" />
+    <Compile Include="View\MainUserManageAppointmentsAndRegistrationsWindow.xaml.cs">
+      <DependentUpon>MainUserManageAppointmentsAndRegistrationsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainUserManageExaminationAndTreatmentWindow.xaml.cs">
+      <DependentUpon>MainUserManageExaminationAndTreatmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainUserManageWindow.xaml.cs">
+      <DependentUpon>MainUserManageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainUserStatistic.xaml.cs">
+      <DependentUpon>MainUserStatistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_DMT\UC_CapNhatDanhMucThuoc.xaml.cs">
+      <DependentUpon>UC_CapNhatDanhMucThuoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_HSBenhAn\UC_HoSoBenhAn.xaml.cs">
+      <DependentUpon>UC_HoSoBenhAn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_KHAM\UC_DanhSachCho.xaml.cs">
+      <DependentUpon>UC_DanhSachCho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_DoiNgayKham.xaml.cs">
+      <DependentUpon>W_DoiNgayKham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_GhiNhanBenh.xaml.cs">
+      <DependentUpon>W_GhiNhanBenh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_InToaThuoc.xaml.cs">
+      <DependentUpon>W_InToaThuoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_LichSuDangKyDV.xaml.cs">
+      <DependentUpon>W_LichSuDangKyDV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_LichTrinhKham.xaml.cs">
+      <DependentUpon>W_LichTrinhKham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLLichHen\UC_LichHen.xaml.cs">
+      <DependentUpon>UC_LichHen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLLichHen\W_TaoLichHen.xaml.cs">
+      <DependentUpon>W_TaoLichHen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_InLichTrinhDieuTri.xaml.cs">
+      <DependentUpon>W_InLichTrinhDieuTri.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_InPhieuCho.xaml.cs">
+      <DependentUpon>W_InPhieuCho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_InPhieuThu.xaml.cs">
+      <DependentUpon>W_InPhieuThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_LapPhieuDangKy.xaml.cs">
+      <DependentUpon>W_LapPhieuDangKy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_LapPhieuDieuTri.xaml.cs">
+      <DependentUpon>W_LapPhieuDieuTri.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_LapPhieuThu.xaml.cs">
+      <DependentUpon>W_LapPhieuThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_ThemKhachHangPDK.xaml.cs">
+      <DependentUpon>W_ThemKhachHangPDK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_XacNhanTheoDoiBenhNhan.xaml.cs">
+      <DependentUpon>W_XacNhanTheoDoiBenhNhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLPhieuThu\UC_BaoCaoPhieuThu.xaml.cs">
+      <DependentUpon>UC_BaoCaoPhieuThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\QLTTKH\UC_ThongTinKhachHang.xaml.cs">
+      <DependentUpon>UC_ThongTinKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLCTKM\W_GuiTinNhan.xaml.cs">
+      <DependentUpon>W_GuiTinNhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\W_InThongTinGoiDichVu.xaml.cs">
+      <DependentUpon>W_InThongTinGoiDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLLLV\W_InfoLichLamViecNhanVien.xaml.cs">
+      <DependentUpon>W_InfoLichLamViecNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLNV\W_ThemPhuTrachDichVu.xaml.cs">
+      <DependentUpon>W_ThemPhuTrachDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLNV\W_ThongTinNhanVien.xaml.cs">
+      <DependentUpon>W_ThongTinNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\TrangChu\UC_MainQTHT.xaml.cs">
+      <DependentUpon>UC_MainQTHT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLCTKM\UC_ChuongTrinhKhuyenMai.xaml.cs">
+      <DependentUpon>UC_ChuongTrinhKhuyenMai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\Layout_QLDV.xaml.cs">
+      <DependentUpon>Layout_QLDV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatGoiDichVu.xaml.cs">
+      <DependentUpon>UC_CapNhatGoiDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatHinhThucThanhToan.xaml.cs">
+      <DependentUpon>UC_CapNhatHinhThucThanhToan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatLieuTrinh.xaml.cs">
+      <DependentUpon>UC_CapNhatLieuTrinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatDichVu.xaml.cs">
+      <DependentUpon>UC_CapNhatDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatPhuongPhap.xaml.cs">
+      <DependentUpon>UC_CapNhatPhuongPhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLLLV\Layout_QLLLV.xaml.cs">
+      <DependentUpon>Layout_QLLLV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLLLV\UC_CapNhatCaLamViec.xaml.cs">
+      <DependentUpon>UC_CapNhatCaLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLLLV\UC_CapNhatPhong.xaml.cs">
+      <DependentUpon>UC_CapNhatPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLLLV\UC_LichLamViec.xaml.cs">
+      <DependentUpon>UC_LichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLLLV\W_LapLichLamViec.xaml.cs">
+      <DependentUpon>W_LapLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLNV\Layout_QLNV.xaml.cs">
+      <DependentUpon>Layout_QLNV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLNV\UC_CapNhatNhanVien.xaml.cs">
+      <DependentUpon>UC_CapNhatNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLNV\UC_PhuTrachDichVu.xaml.cs">
+      <DependentUpon>UC_PhuTrachDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_QuanTriHeThong\QLNV\UC_VaiTroVaChuyenMon.xaml.cs">
+      <DependentUpon>UC_VaiTroVaChuyenMon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NVQL_LichHenVaDKKham\TrangChu\UC_Main.xaml.cs">
+      <DependentUpon>UC_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Owners_BaoCaoThongKe\QL_ThongKeDichVu\UC_ThongKeDichVu.xaml.cs">
+      <DependentUpon>UC_ThongKeDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Owners_BaoCaoThongKe\QL_ThongKeDoanhThu\UC_ThongKeDoanhThu.xaml.cs">
+      <DependentUpon>UC_ThongKeDoanhThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Owners_BaoCaoThongKe\QL_ThongKeNo\UC_ThongKeNo.xaml.cs">
+      <DependentUpon>UC_ThongKeNo.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\Icons\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ResoucreXAML\MainResoucre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StyleMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\LightTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlSpa\UseControlUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainUserManageAppointmentsAndRegistrationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainUserManageExaminationAndTreatmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainUserManageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainUserStatistic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_DMT\UC_CapNhatDanhMucThuoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_HSBenhAn\UC_HoSoBenhAn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_KHAM\UC_DanhSachCho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_DoiNgayKham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_GhiNhanBenh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_InToaThuoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_LichSuDangKyDV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_KhamVaDieuTri\QL_KHAM\W_LichTrinhKham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLLichHen\UC_LichHen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLLichHen\W_TaoLichHen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_InLichTrinhDieuTri.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_InPhieuCho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_InPhieuThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_LapPhieuDangKy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_LapPhieuDieuTri.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_LapPhieuThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_ThemKhachHangPDK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuKham\W_XacNhanTheoDoiBenhNhan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLPhieuThu\UC_BaoCaoPhieuThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\QLTTKH\UC_ThongTinKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLCTKM\W_GuiTinNhan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\W_InThongTinGoiDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLLLV\W_InfoLichLamViecNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLNV\W_ThemPhuTrachDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLNV\W_ThongTinNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\TrangChu\UC_MainQTHT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLCTKM\UC_ChuongTrinhKhuyenMai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\Layout_QLDV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatGoiDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatHinhThucThanhToan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatLieuTrinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLDV\UC_CapNhatPhuongPhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLLLV\Layout_QLLLV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLLLV\UC_CapNhatCaLamViec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLLLV\UC_CapNhatPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLLLV\UC_LichLamViec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLLLV\W_LapLichLamViec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLNV\Layout_QLNV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLNV\UC_CapNhatNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLNV\UC_PhuTrachDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_QuanTriHeThong\QLNV\UC_VaiTroVaChuyenMon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NVQL_LichHenVaDKKham\TrangChu\UC_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Owners_BaoCaoThongKe\QL_ThongKeDichVu\UC_ThongKeDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Owners_BaoCaoThongKe\QL_ThongKeDoanhThu\UC_ThongKeDoanhThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Owners_BaoCaoThongKe\QL_ThongKeNo\UC_ThongKeNo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\DB\DB_SPA.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_SPA.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\DB\DB_SPA.edmx.diagram">
+      <DependentUpon>DB_SPA.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\NVQL_KhamVaDieuTri\QL_LVV\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logoSpa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Avatars\avatar-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Avatars\Customer\man.png" />
+    <Resource Include="Assets\Avatars\Customer\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ImgService\wellness-ga759d2a88_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Discount\sale-label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Filter\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ImgService\taixuong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\pay\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\pay\credit-card.png" />
+    <Resource Include="Assets\Icons\pay\wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\calendar\appointment.png" />
+    <Resource Include="Assets\Icons\calendar\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6861936d3b380006e929e3.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e68629f6d3b380006e96577.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6867916d3b380006ea852b.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6869b66d3b380006eb02d9.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6870646d3b380006ec843b.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6875c26d3b380006edb7c5.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6879c66d3b380006eea2f9.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e687ab36d3b380006eed9fb.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e687c7e6d3b380006ef45ad.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e687c926d3b380006ef4a2f.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e687dce6d3b380006ef942b.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e687fc56d3b380006f007fd.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e68822b6d3b380006f093e3.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6884136d3b380006f1021f.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e6886c36d3b380006f19fc9.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e68881e6d3b380006f1ef2b.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5e68889a6d3b380006f20b87.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5f1803d41f67b00006789f09.jpg" />
+    <Resource Include="Assets\Avatars\Employees\generated_photos_5f182da91f67b0000685fc1e.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ImgService\125518577-light-infrared-therapy-cosmetology-head-procedure-beauty-woman-face-cosmetic-salon-device-facial-ski.jpg" />
+    <Resource Include="Image\ImgService\151075336-young-woman-carbo-black-peel-off-mask-on-her-face-girl-drying-cosmetic-to-removing-it-using-hair-dry.jpg" />
+    <Resource Include="Image\ImgService\157800069-elos-epilation-hair-removal-procedure-on-the-face-of-a-woman-beautician-doing-laser-rejuvenation-in-.jpg" />
+    <Resource Include="Image\ImgService\25769323-acne-because-the-disorders-of-sebaceous-glands-productions.jpg" />
+    <Resource Include="Image\ImgService\gettyimages-1315555606-2048x2048.jpg" />
+    <Resource Include="Image\ImgService\gettyimages-168315888-2048x2048.jpg" />
+    <Resource Include="Image\ImgService\lan-kim-tri-mun-co-tot-khong-nhung-dieu-ban-can-b-1.jpg" />
+    <Resource Include="Image\ImgService\beautician-with-brush-applies-white-moisturizing-mask-face-young-girl-client-spa-beauty-salon.jpg" />
+    <Resource Include="Image\ImgService\beautiful-young-woman-having-spa-massage-head-beauty-salon-indoors.jpg" />
+    <Resource Include="Image\ImgService\beauty-spa.jpg" />
+    <Resource Include="Image\ImgService\portrait-two-mixed-race-women-stand-with-closed-eyes-apply-cucumber-slices-face-moisturize-enjoy-softness-skin.jpg" />
+    <Resource Include="Image\ImgService\spa-massage-young-woman-with-facial-mask-face-indoors.jpg" />
+    <Resource Include="Image\ImgService\view-from-rejuvenation-beautiful-woman-enjoying-cosmetology-procedures-beauty-salon-dermatology-hands-blue-glows-healthcare-therapy-botox.jpg" />
+    <Resource Include="Image\ImgService\woman-beauty-salon-face-treatment.jpg" />
+    <Resource Include="Image\ImgService\woman-enjoying-stone-massage.jpg" />
+    <Resource Include="Image\ImgService\woman-having-physiotherapy-session-clinic.jpg" />
+    <Resource Include="Image\ImgService\woman-spa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Discount\discount.png" />
+    <Resource Include="Assets\Icons\calendar\calendar.png" />
+    <Resource Include="Assets\Icons\pay\bill.png" />
+    <Resource Include="Assets\Icons\pay\expenses.png" />
+    <Resource Include="Assets\Icons\calendar\cake.png" />
+    <Resource Include="Assets\Icons\calendar\price-tag.png" />
+    <Resource Include="Assets\Icons\calendar\schedule %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Discount\microphone.png" />
+    <Resource Include="Image\Discount\discount %281%29.png" />
+    <Resource Include="Image\Discount\discount-label.png" />
+    <Resource Include="Image\logoSpaIcon.png" />
+    <Content Include="Model\DB\DB_SPA.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_SPA.edmx</DependentUpon>
+      <LastGenOutput>DB_SPA.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DB\DB_SPA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_SPA.edmx</DependentUpon>
+      <LastGenOutput>DB_SPA.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

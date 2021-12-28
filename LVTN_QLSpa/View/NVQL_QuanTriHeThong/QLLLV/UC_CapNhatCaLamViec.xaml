@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="LVTN_QLSpa.View.QLLLV.UC_CapNhatCaLamViec"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LVTN_QLSpa.View.QLLLV"
+             mc:Ignorable="d" 
+             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             DataContext="{StaticResource CapNhatCaLamViecVM}">
+    <Grid Height="700" Margin="0 20 0 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            <ColumnDefinition Width="1.3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card Grid.Column="0" Margin="10" UniformCornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBox materialDesign:HintAssist.Hint="Mã ca làm việc"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="30 10 30 10"
+                        Text="{Binding CLV_MA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="0"
+                            IsEnabled="False">
+                </TextBox>
+                <TextBox materialDesign:HintAssist.Hint="Tên ca làm việc"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="30 10 30 10"
+                        Text="{Binding CLV_TEN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="1"
+                         Name="txtCLV_TEN">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding AddIdCommand}" 
+                                                                   CommandParameter="{Binding ElementName=txtCLV_TEN}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                
+                <materialDesign:TimePicker Is24Hours="True"
+                                           Grid.Row="2"
+                                           materialDesign:HintAssist.Hint="Giờ bắt đầu"
+                                           Margin="30 20 30 20" 
+                                           Text="{Binding CLV_GIOBATDAU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <materialDesign:TimePicker Is24Hours="True"
+                                           Grid.Row="3"
+                                           materialDesign:HintAssist.Hint="Giờ kết thúc"
+                                           Margin="30 15 30 20" 
+                                           Text="{Binding CLV_GIOKETTHUC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                Content="Thêm"
+                                Margin="10"
+                                Grid.Column="0"
+                                Command="{Binding CommandAddCLV}"
+                                VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                Content="Sửa"
+                                Margin="10"
+                                Grid.Column="1"
+                                Command="{Binding CommandEdiCLV}"
+                                VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                Content="Xóa"
+                                Margin="10"
+                                Grid.Column="2"
+                                Command="{Binding CommandDeleteCLV}"
+                                VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedButton"
+                                Content="Làm mới"
+                                Margin="10"
+                                Grid.Column="3"
+                                Command="{Binding CommandClearCLV}"
+                                VerticalAlignment="Bottom" Background="#FF2D2F4C" BorderThickness="0">
+                    </Button>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="1" Margin="10" UniformCornerRadius="10">
+            <ListView ItemsSource="{Binding ListCaLamViec}"  SelectedItem="{Binding SelectedItemCaLamViec, Mode=OneWayToSource}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Mã ca làm việc">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock Text="{Binding CLV_MA}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Tên ca làm việc">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock Text="{Binding CLV_TEN}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Giờ bắt đầu">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock Text="{Binding CLV_GIOBATDAU}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Giờ kết thúc">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock Text="{Binding CLV_GIOKETTHUC}" Margin="20 0 0 0" HorizontalAlignment="Center" ></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>
